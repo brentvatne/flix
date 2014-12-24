@@ -156,9 +156,9 @@ $button-default-active-border:    $button-stable-active-border !default;
 // Bars
 // -------------------------------
 
-$bar-height:                      44px !default;
-$bar-title-font-size:             17px !default;
-$bar-padding-portrait:            5px !default;
+$bar-height:                      55px !default;
+$bar-title-font-size:             26px !default;
+$bar-padding-portrait:            10px !default;
 $bar-padding-landscape:           5px !default;
 $bar-transparency:                1 !default;
 
@@ -168,7 +168,7 @@ $bar-subfooter-height:            $bar-height !default;
 
 $bar-light-bg:                    rgba($button-light-bg, $bar-transparency) !default;
 $bar-light-text:                  $button-light-text !default;
-$bar-light-border:                $button-light-border !default;
+$bar-light-border:                transparent;
 $bar-light-active-bg:             $button-light-active-bg !default;
 $bar-light-active-border:         $button-light-active-border !default;
 

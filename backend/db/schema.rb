@@ -11,21 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141223053721) do
+ActiveRecord::Schema.define(version: 20141224081755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "dislikes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "show_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "show_id"
+  end
+
   create_table "shows", force: :cascade do |t|
-    t.text "netflix_id"
-    t.text "genre"
-    t.text "cast"
-    t.text "title"
-    t.text "director"
-    t.text "description"
-    t.text "year"
-    t.text "imdb_rating"
-    t.text "image_url"
+    t.text    "netflix_id"
+    t.text    "genre"
+    t.text    "cast"
+    t.text    "title"
+    t.text    "director"
+    t.text    "description"
+    t.integer "year"
+    t.decimal "imdb_rating"
+    t.text    "image_url"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.text "email"
+    t.text "facebook_id"
+    t.text "name"
   end
 
 end

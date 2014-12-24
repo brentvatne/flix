@@ -9,6 +9,7 @@
       music: true,
       independent: true,
       horror: true,
+      children: true,
       gay: true,
       foreign: true,
       faith: true,

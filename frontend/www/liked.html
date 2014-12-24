@@ -1,0 +1,21 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <div class="buttons">
+      <button ng-click="closeModal()" class="button button-icon ion-close"></a>
+    </div>
+  </ion-header-bar>
+  <ion-content ng-controller="LikedShowsCtrl" class="padding">
+    <ion-list>
+      <ion-item
+        class="item-thumbnail-left liked-show-item"
+        ng-repeat="show in shows">
+        <img ng-src="{{show.imageUrl}}">
+        <h2>{{show.title}}</h2>
+        <p>{{show.description}}</p>
+        <ion-option-button class="button-positive" ng-click="complete(show)">
+          Watched it, done!
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

@@ -1,5 +1,7 @@
 (function() {
   var TinderflixApi = function($http, Dispatcher, AppConstants, ApiConstants) {
+    var BASE_URL = 'http://tinderflix.ngrok.com';
+
     /* Private Methods */
     var handleResponse = function(key, params) {
       return function(response) {
@@ -23,23 +25,36 @@
 
     /* Public Interface */
     return {
-      fetchShows: function(preferences, userId) {
+      fetchShows: function(preferences, userEmail) {
         key = AppConstants.FETCH_SHOWS
-        params = {preferences: preferences, userId: userId}
+        params = {preferences: preferences, email: userEmail}
         dispatch(key, ApiConstants.PENDING, params);
-        $http.get('/shows', params).then(handleResponse(key, params));
+        $http.get(BASE_URL + '/shows', {params: params}).
+          then(handleResponse(key, params));
       },
 
-      fetchLiked: function(userId) {
-      // stub
+      fetchLikedShows: function(userEmail) {
+        key = AppConstants.FETCH_LIKED_SHOWS
+        params = {email: userEmail}
+        dispatch(key, ApiConstants.PENDING, params);
+        $http.get(BASE_URL + '/shows/liked', {params: params}).
+          then(handleResponse(key, params));
       },
 
-      like: function(show, userId) {
-      // stub
+      likeShow: function(showId, userEmail) {
+        key = AppConstants.LIKE_SHOW
+        params = {showId: showId, email: userEmail}
+        dispatch(key, ApiConstants.PENDING, params);
+        $http.post(BASE_URL + '/shows/' + showId + '/like', {email: userEmail}).
+          then(handleResponse(key, params));
       },
 
-      dislike: function(show, userId) {
-      // stub
+      dislikeShow: function(showId, userEmail) {
+        key = AppConstants.DISLIKE_SHOW
+        params = {showId: showId, userEmail: userEmail}
+        dispatch(key, ApiConstants.PENDING, params);
+        $http.post(BASE_URL + '/shows/' + showId + '/dislike', {email: userEmail}).
+          then(handleResponse(key, params));
       }
     }
   }

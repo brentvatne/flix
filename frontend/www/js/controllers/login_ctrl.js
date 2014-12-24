@@ -9,7 +9,7 @@
     Store.bindState($scope, function() {
       if (Store.isLoggedIn()) {
         $rootScope.currentUser = Store.getCurrentUser();
-        $state.go('main.home');
+        $state.go('main');
       }
     });
   }

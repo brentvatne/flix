@@ -24,7 +24,7 @@
     /* Private API */
     return {
       fetchUserInfo: function(accessToken) {
-        params = {access_token: accessToken, fields: "id,name,email", format: "json"}
+        params = {access_token: accessToken, fields: "id,name,email,picture", format: "json"}
         key = AppConstants.SET_CURRENT_USER;
         dispatch(key, ApiConstants.PENDING, params);
         $http.get("https://graph.facebook.com/v2.2/me", {params: params}).

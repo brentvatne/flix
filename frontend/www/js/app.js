@@ -3,7 +3,8 @@
     ['ionic',
      'ngCordova',
      'ngStorage',
-     'ngFlux'])
+     'ngFlux',
+     'ionic.contrib.ui.tinderCards'])
 
   app.run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
