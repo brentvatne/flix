@@ -7,6 +7,14 @@
       $state.go('login');
     }
 
+    $scope.resetPreferences = function() {
+      Actions.resetPreferences();
+      Actions.fetchShows();
+      if ($scope.moreOptionsPopoverIsOpen) {
+        $scope.closePopover();
+      }
+    }
+
     /* Side Menu Delegate Setup */
     $ionicSideMenuDelegate.edgeDragThreshold(15);
 
@@ -58,8 +66,8 @@
       $scope.likedShowsModalIsOpen = false;
     });
 
-    /* Current User Popover */
-    $ionicPopover.fromTemplateUrl('user-menu.html', {
+    /* More options popover */
+    $ionicPopover.fromTemplateUrl('more-options-menu.html', {
       scope: $scope,
     }).then(function(popover) {
       $scope.popover = popover;
@@ -67,20 +75,25 @@
 
     $scope.openPopover = function($event) {
       $scope.popover.show($event);
+      $scope.moreOptionsPopoverIsOpen = true;
     };
 
     $scope.closePopover = function() {
       $scope.popover.hide();
+      $scope.moreOptionsPopoverIsOpen = false;
     };
 
     $scope.$on('$destroy', function() {
       $scope.popover.remove();
+      $scope.moreOptionsPopoverIsOpen = false;
     });
 
     $scope.$on('popover.hidden', function() {
+      $scope.moreOptionsPopoverIsOpen = false;
     });
 
     $scope.$on('popover.removed', function() {
+      $scope.moreOptionsPopoverIsOpen = false;
     });
   }
 

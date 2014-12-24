@@ -28,12 +28,12 @@
 
     // Hello there! Uncomment this to test things out
     //
-    // _logIn({
-    //   facebookId: '1234doesntmatter',
-    //   email: 'brentvatne@gmail.com',
-    //   name: 'Brent Vatne',
-    //   picture: 'http://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/10688270_10100341103394023_8770238993473119601_o.jpg'
-    // });
+    _logIn({
+      facebookId: '1234doesntmatter',
+      email: 'brentvatne@gmail.com',
+      name: 'Brent Vatne',
+      picture: {data: {url: 'https://avatars1.githubusercontent.com/u/90494?v=3&u=04502cb1fa18d66e70ac8fef8e8c21af6f25eaff&s=140'}}
+    });
 
     var _logOut = function() {
       _repo.$reset();
@@ -90,6 +90,10 @@
               break;
             case AppConstants.LOG_OUT:
               _logOut();
+              store.emitChange(action);
+              break;
+            case AppConstants.RESET_PREFS:
+              _resetPrefs();
               store.emitChange(action);
               break;
             case AppConstants.LIKE_SHOW:

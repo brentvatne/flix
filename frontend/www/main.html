@@ -8,11 +8,14 @@
                     menu-toggle="left">
             </button>
             <a ng-click="openLikedShowsModal()"
-               class="button button-icon button-clear ion-ios-flame favorites-button ng-class:{'button-positive': likedShowsModalIsOpen}">
+               class="button button-icon button-clear ion-fireball favorites-button ng-class:{'button-positive': likedShowsModalIsOpen}">
             </a>
 
-            <a class="user-avatar" ng-click="openPopover($event)"/>
+            <a class="user-avatar"/>
               <img ng-src="{{currentUser.picture}}" />
+            </a>
+            <a class="more-link-options button button-icon button-clear ion-android-more-vertical ng-class:{'button-positive': moreOptionsPopoverIsOpen}"
+               ng-click="openPopover($event)">
             </a>
           </div>
         </div>

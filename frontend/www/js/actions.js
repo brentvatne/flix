@@ -13,6 +13,14 @@
         Dispatcher.handleViewAction(payload);
       },
 
+      resetPreferences: function() {
+        payload = {
+          actionType: AppConstants.RESET_PREFS
+        }
+
+        Dispatcher.handleViewAction(payload);
+      },
+
       updatePrefs: function(prefs) {
         payload = {
           actionType: AppConstants.UPDATE_PREFS,

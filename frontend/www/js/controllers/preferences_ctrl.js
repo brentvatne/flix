@@ -1,7 +1,16 @@
 (function() {
-  var PreferencesCtrl = function($scope, Store, Actions) {
+  var PreferencesCtrl = function($scope, Store, Actions, AppConstants) {
     $scope.prefs = Store.getPrefs();
     $scope.isLoggedIn = Store.isLoggedIn();
+
+    Store.bindState($scope, function(action) {
+      if (action) {
+        console.log(action.actionType);
+      }
+      if (action && action.actionType == AppConstants.RESET_PREFS) {
+        $scope.prefs = Store.getPrefs();
+      }
+    });
 
     $scope.update = function() {
       Actions.updatePrefs($scope.prefs);
