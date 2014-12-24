@@ -1,5 +1,8 @@
 ### Swipe movies in Netflix like people on Tinder
 
+Check out the [demo gif](https://github.com/brentvatne/tinder-netflix/blob/master/demo.gif).
+Be warned, it's 6mb, so you might not want to if you're on a mobile device.
+
 I built this in one day as a quick tool for myself and my friends to use.
 There's a lot of low hanging fruit to improve on the front end:
 
