@@ -1,0 +1,23 @@
+{
+  "name": "angular-flux-helpers",
+  "version": "0.1.1",
+  "homepage": "https://github.com/brentvatne/angular-flux",
+  "authors": [
+    "Brent Vatne <brent.vatne@madriska.com>"
+  ],
+  "description": "Integrate dispatcher.js, EventEmitter into Angular and provide helper methods to get you started with using the Flux Architecture in Angular.js",
+  "main": "angular-flux.js",
+  "keywords": [
+    "flux",
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ]
+}

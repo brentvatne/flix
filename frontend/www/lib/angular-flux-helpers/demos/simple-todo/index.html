@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Todo - Angular.js Flux</title>
+    <link href="furtive.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+    <script src="angular-contenteditable.js"></script>
+    <script src="../../angular-flux.js"></script>
+    <script src="todo-app.js"></script>
+  </head>
+
+  <body></body>
+
+  <script id="todo-list.html" type="text/ng-template">
+    <form ng-submit="createTodo()" class="todo-list--form">
+      <input ng-model="newTodo.title" type="text" placeholder="Enter a todo" />
+      <input type="submit" class="btn btn--gray" value="Add to list" tabindex="-1" />
+    </form>
+
+    <todo-list-item ng-repeat="todo in todos track by todo.id"
+                    localize-state="{name: 'todo', value: todo}">
+    </todo-list-item>
+  </script>
+
+  <script id="todo-list-item.html" type="text/ng-template">
+    <div class="todo-list-item">
+      <input type="checkbox"
+             ng-click="toggleComplete()"
+             ng-checked="todo.complete"
+             tabindex="-1">
+        <span ng-model="todo.title"
+              ng-change="titleChanged()"
+              ng-model-options="{debounce: 500}"
+              contenteditable no-line-breaks="true" strip-br="true"
+              class="todo-list-item--title">
+        </span>
+      </input>
+
+      <a ng-click="removeTodo()"
+         class="bg--red todo-list-item--remove-button"
+         href=""
+         tabindex="-1">
+        X
+      </a>
+    </div>
+  </script>
+
+  <script id="raw-todo-data.html" type="text/ng-template">
+    <pre class="bg--off-white" ng-show="todos.length">{{ todos | json }}</pre>
+  </script>
+
+  <script id="mark-todos-complete-button.html" type="text/ng-template">
+    <a href='' ng-show='isVisible()' ng-click='perform()' class='btn btn--green col-2'>
+      Complete all
+    </a>
+  </script>
+
+  <script id="clear-completed-button.html" type="text/ng-template">
+    <a href='' ng-show='isVisible()' ng-click='perform()' class='btn btn--blue col-3'>
+      Clear completed
+    </a>
+  </script>
+
+  <body ng-app="todoApp">
+    <div class="measure grd">
+      <h2>Todo list!</h2>
+
+      <div class="row">
+        <div class="col-5 todo-list-column">
+          <todo-list></todo-list>
+
+          <div class="row todo-bulk-actions">
+            <mark-todos-complete-button></mark-todos-complete-button>
+            <clear-completed-button></clear-completed-button>
+          </div>
+        </div>
+        <div class="col-2 raw-todo-data-column">
+          <raw-todo-data></raw-todo-data>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

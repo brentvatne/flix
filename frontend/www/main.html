@@ -1,0 +1,107 @@
+<ion-view view-title="Tinderflix">
+  <ion-side-menus>
+    <ion-side-menu-content>
+      <ion-nav-bar class="bar-stable">
+       <ion-nav-buttons side="left">
+          <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+          </button>
+        </ion-nav-buttons>
+      </ion-nav-bar>
+
+      <ion-nav-view class="has-header" name="mainContent"><ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+      <ion-header-bar class="bar-assertive">
+        <h1 class="title">
+          <span ng-show="currentUser.name">
+            {{currentUser.name}}
+          </span>
+
+          <span ng-show="!currentUser.name">
+            Not logged in
+          </span>
+        </h1>
+      </ion-header-bar>
+
+      <ion-content padding="false" scroll="true">
+        <ion-list>
+          <ion-item class="item-divider">
+            Minimum IMDb Rating: {{prefs.minImdbRating}}
+          </ion-item>
+          <ion-item class="range range-positive">
+            <input type="range" min="0.0" max="10.0" step="0.1"
+                   ng-model="prefs.minImdbRating"
+                   ng-model-options="{debounce: {'default': 50}}"
+                   ng-change="update()">
+          </ion-item>
+
+          <ion-item class="item-divider">
+          Minimum Release Year: {{prefs.minReleaseYear}}
+          </ion-item>
+          <ion-item class="range range-balanced">
+              <input type="range" min="1900" max="2015" ng-model="prefs.minReleaseYear"
+                     ng-change="update()"
+                     ng-model-options="{debounce: {'default': 50}}">
+          </ion-item>
+
+          <ion-item class="item-divider">Genres</ion-item>
+          <ion-checkbox ng-model="prefs.genre.action" ng-change="update()">
+            Action &amp; Adventure
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.anime" ng-change="update()">
+            Anime
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.canadian" ng-change="update()">
+            Canadian Movies
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.classic" ng-change="update()">
+            Classic Movies
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.comedy" ng-change="update()">
+            Comedies
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.documentary" ng-change="update()">
+            Documentaries
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.dramas" ng-change="update()">
+            Dramas
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.faith" ng-change="update()">
+            Faith &amp; Spirituality
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.foreign" ng-change="update()">
+            Foreign Movies
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.gay" ng-change="update()">
+            Gay &amp; Lesbian Movies
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.horror" ng-change="update()">
+            Horror
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.independent" ng-change="update()">
+            Independent Movies
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.music" ng-change="update()">
+            Music
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.romantic" ng-change="update()">
+            Romantic Comedies
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.scifi" ng-change="update()">
+            Sci-Fi &amp; Fantasy
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.specialInterest" ng-change="update()">
+            Special Interest
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.tv" ng-change="update()">
+            TV Shows
+          </ion-checkbox>
+          <ion-checkbox ng-model="prefs.genre.thrillers" ng-change="update()">
+            Thrillers
+          </ion-checkbox>
+        </ion-list>
+      </ion-content>
+    </ion-side-menu>
+  </ion-side-menus>
+</ion-view>
