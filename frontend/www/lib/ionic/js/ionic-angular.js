@@ -2965,7 +2965,7 @@ function($rootScope, $ionicBody, $compile, $timeout, $ionicPlatform, $ionicTempl
             self.hide();
           }
         });
-      }, 400);
+      }, 30);
     },
 
     /**

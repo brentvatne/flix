@@ -43825,7 +43825,7 @@ function($rootScope, $ionicBody, $compile, $timeout, $ionicPlatform, $ionicTempl
       self.el.classList.remove('hide');
       $timeout(function() {
         $ionicBody.addClass(self.viewType + '-open');
-      }, 400);
+      }, 50);
 
       if (!self.el.parentElement) {
         modalEl.addClass(self.animation);
@@ -43905,7 +43905,7 @@ function($rootScope, $ionicBody, $compile, $timeout, $ionicPlatform, $ionicTempl
       return $timeout(function() {
         $ionicBody.removeClass(self.viewType + '-open');
         self.el.classList.add('hide');
-      }, self.hideDelay || 320);
+      }, 10);
     },
 
     /**
