@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.tinderflix865086" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>tinderflix</name>
+  <name>Tinderflix</name>
   <description>
-        An Ionic Framework and Cordova project.
-    </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
-    </author>
+    Tinder... for Netflix..
+  </description>
+  <author email="brentvatne@gmail.com" href="http://brentvatne.ca.com/">
+    Brent Vatne
+  </author>
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>

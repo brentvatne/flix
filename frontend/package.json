@@ -1,7 +1,7 @@
 {
-  "name": "tinderflix",
+  "name": "Tinderflix",
   "version": "1.0.0",
-  "description": "tinderflix: An Ionic project",
+  "description": "Tinder... for Netflix",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",

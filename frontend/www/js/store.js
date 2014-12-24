@@ -26,7 +26,8 @@
       _repo.loggedIn = true;
     }
 
-    // Hello there!
+    // Hello there! Uncomment this to test things out
+    //
     // _logIn({
     //   facebookId: '1234doesntmatter',
     //   email: 'brentvatne@gmail.com',
@@ -36,6 +37,7 @@
 
     var _logOut = function() {
       _repo.$reset();
+      _resetPrefs();
     }
 
     /* Public Api */

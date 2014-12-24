@@ -28,7 +28,7 @@
     /* Liked Shows Modal */
     $ionicModal.fromTemplateUrl('liked.html', {
       scope: $scope,
-      animation: 'slide-in-up'
+      animation: 'fade-in'
     }).then(function(modal) {
       $scope.likedShowsModal = modal;
     });

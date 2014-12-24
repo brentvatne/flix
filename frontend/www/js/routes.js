@@ -12,11 +12,6 @@
         templateUrl: 'main.html',
       });
 
-      // .state('liked', {
-      //   url: '/liked',
-      //   templateUrl: 'liked.html'
-      // });
-
     $urlRouterProvider.otherwise('/login');
   }
 
