@@ -10,15 +10,13 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'httparty'
-gem 'pry-rails'
 gem 'active_model_serializers'
 gem 'rack-cors'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :production do
+  gem 'unicorn'
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'byebug'

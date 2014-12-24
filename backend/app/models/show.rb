@@ -99,7 +99,9 @@ class Show < ActiveRecord::Base
     end
 
     if user = params[:user]
-      query = query.where('shows.id not in (?)', user.show_ids)
+      if (show_ids = user.show_ids).any?
+        query = query.where('shows.id not in (?)', user.show_ids)
+      end
     end
 
     query

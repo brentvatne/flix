@@ -6,11 +6,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= begin
-      if user = User.where(email: params[:email]).first
-        user
-      else
-        user = User.create(email: params[:email])
-      end
+      user = User.where(email: params[:email]).first_or_create
     end
   end
 

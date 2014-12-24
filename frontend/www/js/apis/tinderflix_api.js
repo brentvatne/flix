@@ -1,6 +1,6 @@
 (function() {
   var TinderflixApi = function($http, Dispatcher, AppConstants, ApiConstants) {
-    var BASE_URL = 'http://tinderflix.ngrok.com';
+    var BASE_URL = 'http://tinderflix.herokuapp.com';
 
     /* Private Methods */
     var handleResponse = function(key, params) {
