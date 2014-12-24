@@ -4,11 +4,11 @@
       <ion-header-bar ng-class="{'main-app-nav': true, 'bar-light': true}">
          <div ng-class="{'buttons': true, 'nav-buttons': true, 'out-of-focus': sideMenuIsOpen()}"
               ng-controller="NavCtrl">
-           <button class="button button-icon button-clear ion-android-options preferences-button ng-class:{'button-assertive': sideMenuIsOpen()}"
+           <button class="button button-icon button-clear ion-android-options preferences-button ng-class:{'button-positive': sideMenuIsOpen()}"
                     menu-toggle="left">
             </button>
             <a ng-click="openLikedShowsModal()"
-               class="button button-icon button-clear ion-ios-flame favorites-button ng-class:{'button-assertive': likedShowsModalIsOpen}">
+               class="button button-icon button-clear ion-ios-flame favorites-button ng-class:{'button-positive': likedShowsModalIsOpen}">
             </a>
 
             <a class="user-avatar" ng-click="openPopover($event)"/>
