@@ -1,14 +1,21 @@
 (function() {
-  var LoginCtrl = function($scope, $rootScope, Store, Actions, FACEBOOK_APP_ID, $cordovaOauth, $state) {
-    $scope.facebookLogin = function() {
-      $cordovaOauth.facebook(FACEBOOK_APP_ID, ["public_profile", "email"]).then(function(result) {
-        Actions.setCurrentUser(result.access_token);
-      });
+  var LoginCtrl = function($scope, $rootScope, $state, auth, Store, Actions) {
+    $scope.facebookLogin = function() { Actions.login(); }
+
+    var handleLoginError = function() {
+      // Do something
     }
+
+    auth.signin({
+      authParams: {
+        scope: 'openid offline_access',
+        device: 'Mobile'
+      },
+      standalone: true
+    }, Actions.logIn, handleLoginError);
 
     Store.bindState($scope, function() {
       if (Store.isLoggedIn()) {
-        $rootScope.currentUser = Store.getCurrentUser();
         $state.go('main');
       }
     });

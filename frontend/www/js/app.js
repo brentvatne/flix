@@ -4,7 +4,9 @@
      'ngCordova',
      'ngStorage',
      'ngFlux',
-     'ionic.contrib.ui.tinderCards'])
+     'ionic.contrib.ui.tinderCards',
+     'auth0',
+     'angular-jwt'])
 
   app.run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {

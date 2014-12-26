@@ -1,8 +1,19 @@
 (function() {
-  var Actions = function(TinderflixApi, FacebookApi, Store, Dispatcher, ApiConstants, AppConstants) {
+  var Actions = function(TinderflixApi, Store, Dispatcher, ApiConstants, AppConstants) {
     return {
-      setCurrentUser: function(facebookAuthToken) {
-        FacebookApi.fetchUserInfo(facebookAuthToken);
+      logIn: function(profile, token, accessToken, state, refreshToken) {
+        payload = {
+          actionType: AppConstants.SET_CURRENT_USER,
+          data: {
+            profile: profile,
+            token: token,
+            accessToken: accessToken,
+            refreshToken: refreshToken,
+            state: state
+          }
+        }
+
+        Dispatcher.handleServerAction(payload);
       },
 
       logOut: function() {
@@ -11,6 +22,17 @@
         }
 
         Dispatcher.handleViewAction(payload);
+      },
+
+      updateAuthToken: function(newToken) {
+        payload = {
+          actionType: AppConstants.UPDATE_AUTH_TOKEN,
+          data: {
+            token: newToken
+          }
+        }
+
+        Dispatcher.handleServerAction(payload);
       },
 
       resetPreferences: function() {

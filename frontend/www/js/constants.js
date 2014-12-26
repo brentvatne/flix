@@ -1,8 +1,8 @@
 (function() {
   var AppConstants = function(FluxUtil) {
     return FluxUtil.defineConstants([
-      'SET_CURRENT_USER', 'UPDATE_PREFS',
-      'RESET_PREFS', 'FETCH_SHOWS',
+      'SET_CURRENT_USER', 'UPDATE_AUTH_TOKEN',
+      'UPDATE_PREFS', 'RESET_PREFS', 'FETCH_SHOWS',
       'FETCH_LIKED_SHOWS', 'LIKE_SHOW',
       'DISLIKE_SHOW',
     ]);

@@ -6,6 +6,10 @@
     var _shows = [],
         _likedShows = [];
 
+    var _updateAuthToken = function(token) {
+      _repo.currentUser.token = token;
+    }
+
     var _resetPrefs = function() {
       _repo.prefs = angular.copy(DEFAULT_PREFS);
     }
@@ -14,31 +18,19 @@
       _repo.prefs = angular.copy(newPrefs);
     }
 
-    // Initialize them if this is the first time
-    if (!_repo.prefs) { _resetPrefs(); }
-
-    var _logIn = function(options) {
-      _repo.currentUser = {}
-      _repo.currentUser.facebookId = options.id;
-      _repo.currentUser.email = options.email;
-      _repo.currentUser.name = options.name;
-      _repo.currentUser.picture = options.picture.data.url;
-      _repo.loggedIn = true;
+    var _logIn = function(userData) {
+      _repo.currentUser = angular.copy(userData);
+      _repo.currentUser.picture = _repo.currentUser.profile.picture;
     }
-
-    // Hello there! Uncomment this to test things out
-    //
-    _logIn({
-      facebookId: '1234doesntmatter',
-      email: 'brentvatne@gmail.com',
-      name: 'Brent Vatne',
-      picture: {data: {url: 'https://avatars1.githubusercontent.com/u/90494?v=3&u=04502cb1fa18d66e70ac8fef8e8c21af6f25eaff&s=140'}}
-    });
 
     var _logOut = function() {
       _repo.$reset();
       _resetPrefs();
     }
+
+    // Initialize them if this is the first time
+    //
+    if (!_repo.prefs) { _resetPrefs(); }
 
     /* Public Api */
     var store = FluxUtil.createStore({
@@ -73,7 +65,7 @@
         if (action.response != ApiConstants.PENDING) {
           switch(action.actionType) {
             case AppConstants.SET_CURRENT_USER:
-              _logIn(action.response);
+              _logIn(action.data);
               store.emitChange(action);
               break;
             case AppConstants.UPDATE_PREFS:
@@ -94,6 +86,10 @@
               break;
             case AppConstants.RESET_PREFS:
               _resetPrefs();
+              store.emitChange(action);
+              break;
+            case AppConstants.UPDATE_AUTH_TOKEN:
+              _updateAuthToken(action.token);
               store.emitChange(action);
               break;
             case AppConstants.LIKE_SHOW:

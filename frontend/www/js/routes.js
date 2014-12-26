@@ -10,6 +10,9 @@
       .state('main', {
         url: '/main',
         templateUrl: 'main.html',
+        data: {
+          requiresLogin: true
+        }
       });
 
     $urlRouterProvider.otherwise('/login');
