@@ -3,6 +3,20 @@
   margin-top: 1px;
 }
 
+.bar-header .button-icon:before {
+ font-size: 26px !important;
+ line-height: 29px !important;
+}
+
+.close-modal-button {
+  margin-top: 5px;
+  margin-left: -10px;
+}
+
+.bar-header .button-icon.close-modal-button:before {
+  font-size: 23px !important;
+}
+
 .bar-header {
   height: 65px;
   position: relative;
@@ -12,19 +26,20 @@
   top: 65px !important;
 }
 
-/* .modal .bar-header { */
-/*   height: 44px !important; */
-/*   padding: 12px 0px 0px 5px; */
-/* } */
+.modal .has-header {
+  top: 80px !important;
+}
 
-/* .modal .bar-header button:before { */
-/*   font-size: 22px !important; */
-/*   line-height: 22px !important; */
-/* } */
+.modal .item-content {
+  height: 132px !important;
+}
 
-/* .modal .has-header { */
-/*   top: 35px !important; */
-/* } */
+.modal .item-content img {
+  max-width: 80px !important;
+  max-height: inherit !important;
+  width: inherit !important;
+}
+
 
 .bar-header {
   padding-top: 16px;
@@ -35,11 +50,6 @@
 
 .preferences-button, .favorites-button {
   padding-top: 3px !important;
-}
-
-.bar-header .button-icon:before {
- font-size: 26px !important;
- line-height: 29px !important;
 }
 
 .out-of-focus {
