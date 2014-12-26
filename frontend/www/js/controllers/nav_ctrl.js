@@ -1,10 +1,13 @@
 (function() {
-  var NavCtrl = function($scope, $state, Store, Actions, $ionicModal, $ionicSideMenuDelegate, $ionicPopover) {
+  var NavCtrl = function($scope, $window, $timeout, Store, Actions, $ionicModal, $ionicSideMenuDelegate, $ionicPopover) {
     $scope.currentUser = Store.getCurrentUser();
 
     $scope.logOut = function() {
       Actions.logOut();
-      $state.go('login');
+      $timeout(function() { $window.location.reload(true) }, 500);
+      if ($scope.moreOptionsPopoverIsOpen) {
+        $scope.closePopover();
+      }
     }
 
     $scope.resetPreferences = function() {
@@ -16,7 +19,7 @@
     }
 
     /* Side Menu Delegate Setup */
-    $ionicSideMenuDelegate.edgeDragThreshold(15);
+    $ionicSideMenuDelegate.edgeDragThreshold(25);
 
     $scope.sideMenuIsOpen = function() {
       return $ionicSideMenuDelegate.isOpenLeft();

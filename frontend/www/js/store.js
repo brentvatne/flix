@@ -34,10 +34,6 @@
 
     /* Public Api */
     var store = FluxUtil.createStore({
-      isLoggedIn: function() {
-        return _repo.loggedIn === true;
-      },
-
       getCurrentUser: function() {
         return _repo.currentUser;
       },

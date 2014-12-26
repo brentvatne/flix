@@ -1,5 +1,5 @@
 (function() {
-  var Actions = function(TinderflixApi, Store, Dispatcher, ApiConstants, AppConstants) {
+  var Actions = function(TinderflixApi, Store, Dispatcher, ApiConstants, AppConstants, auth) {
     return {
       logIn: function(profile, token, accessToken, state, refreshToken) {
         payload = {
@@ -22,6 +22,7 @@
         }
 
         Dispatcher.handleViewAction(payload);
+        auth.signout();
       },
 
       updateAuthToken: function(newToken) {

@@ -21,23 +21,46 @@
   app.config(function (authProvider, $httpProvider, jwtInterceptorProvider) {
     jwtInterceptorProvider.tokenGetter = function(Store, Actions, jwtHelper, auth) {
       var currentUser = Store.getCurrentUser(),
-          idToken = currentUser && currentUser.token,
+          token = currentUser && currentUser.token,
           refreshToken = currentUser && currentUser.refreshToken;
 
-      if ((!currentUser || currentUser == {}) || !idToken || !refreshToken) {
+      if ((!currentUser || currentUser == {}) || !token || !refreshToken) {
         return null;
       } else {
-        if (jwtHelper.isTokenExpired(idToken)) {
-          return auth.refreshIdToken(refreshToken).then(function(idToken) {
-            Actions.updateAuthToken(idToken);
-            return idToken;
+        if (jwtHelper.isTokenExpired(token)) {
+          return auth.refreshIdToken(refreshToken).then(function(token) {
+            Actions.updateAuthToken(token);
+            return token;
           });
         } else {
-          return idToken;
+          return token;
         }
       }
     }
 
     $httpProvider.interceptors.push('jwtInterceptor');
+  });
+
+  app.run(function($rootScope, auth, Store, jwtHelper, $location, Actions) {
+    // This events gets triggered on refresh or URL change
+    $rootScope.$on('$locationChangeStart', function() {
+      if (!auth.isAuthenticated) {
+        var currentUser = Store.getCurrentUser(),
+            token = currentUser && currentUser.token,
+            profile = currentUser && currentUser.profile;
+
+        if (token) {
+          if (!jwtHelper.isTokenExpired(token)) {
+            auth.authenticate(profile, token);
+          } else {
+            auth.refreshIdToken(refreshToken).then(function(newToken) {
+              Actions.updateAuthToken(newToken);
+              auth.authenticate(profile, newToken);
+              return newToken;
+            });
+          }
+        }
+      }
+    });
   });
 })();

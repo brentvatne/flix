@@ -1,7 +1,6 @@
 (function() {
   var PreferencesCtrl = function($scope, Store, Actions, AppConstants) {
     $scope.prefs = Store.getPrefs();
-    $scope.isLoggedIn = Store.isLoggedIn();
 
     Store.bindState($scope, function(action) {
       if (action) {
