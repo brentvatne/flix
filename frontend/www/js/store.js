@@ -55,7 +55,6 @@
       },
 
       dispatcherIndex: Dispatcher.register(function(payload) {
-        console.log('Store', payload);
         var action = payload.action;
 
         if (action.response != ApiConstants.PENDING) {

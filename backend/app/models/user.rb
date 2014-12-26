@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :likes
-  has_many :dislikes
+  has_many :likes, dependent: :destroy
+  has_many :dislikes, dependent: :destroy
   has_many :liked_shows, through: :likes, class_name: 'Show', source: :show
   has_many :disliked_shows, through: :dislikes, class_name: 'Show', source: :show
 

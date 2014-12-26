@@ -13,3 +13,4 @@
 /tmp
 node_modules/**/*
 frontend/platforms/**/*
+backend/tmp/**/*

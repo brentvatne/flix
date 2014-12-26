@@ -52,10 +52,12 @@
         if (token) {
           if (!jwtHelper.isTokenExpired(token)) {
             auth.authenticate(profile, token);
+            $rootScope.currentUser = currentUser;
           } else {
             auth.refreshIdToken(refreshToken).then(function(newToken) {
               Actions.updateAuthToken(newToken);
               auth.authenticate(profile, newToken);
+              $rootScope.currentUser = currentUser;
               return newToken;
             });
           }
