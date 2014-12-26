@@ -3,13 +3,13 @@
     $stateProvider
       .state('login', {
         url: '/login',
-        templateUrl: 'login.html',
+        templateUrl: 'templates/login.html',
         controller: 'LoginCtrl'
       })
 
       .state('main', {
         url: '/main',
-        templateUrl: 'main.html',
+        templateUrl: 'templates/main.html',
         data: {
           requiresLogin: true
         }

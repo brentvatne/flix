@@ -1,3 +1,0 @@
-# view AndroidManifest.xml #generated:6
--keep class com.ionicframework.tinderflix865086.CordovaApp { <init>(...); }
-

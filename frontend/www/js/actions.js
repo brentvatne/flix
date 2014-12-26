@@ -1,5 +1,5 @@
 (function() {
-  var Actions = function(TinderflixApi, Store, Dispatcher, ApiConstants, AppConstants, auth) {
+  var Actions = function(FlixApi, Store, Dispatcher, ApiConstants, AppConstants, auth) {
     return {
       logIn: function(profile, token, accessToken, state, refreshToken) {
         payload = {
@@ -57,24 +57,23 @@
         var userEmail = (Store.getCurrentUser() || {}).email,
             prefs = Store.getPrefs();
 
-        TinderflixApi.fetchShows(prefs, userEmail);
+        FlixApi.fetchShows(prefs, userEmail);
       },
 
       fetchLikedShows: function() {
         var userEmail = (Store.getCurrentUser() || {}).email;
 
-        console.log(userEmail);
-        TinderflixApi.fetchLikedShows(userEmail);
+        FlixApi.fetchLikedShows(userEmail);
       },
 
       likeShow: function(showId) {
         var userEmail = (Store.getCurrentUser() || {}).email;
-        TinderflixApi.likeShow(showId, userEmail);
+        FlixApi.likeShow(showId, userEmail);
       },
 
       dislikeShow: function(showId) {
         var userEmail = (Store.getCurrentUser() || {}).email;
-        TinderflixApi.dislikeShow(showId, userEmail);
+        FlixApi.dislikeShow(showId, userEmail);
       }
     }
   }

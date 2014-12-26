@@ -3,10 +3,36 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :exception
   skip_before_filter :verify_authenticity_token
+  before_action :validate_token
 
   def current_user
     @current_user ||= begin
-      user = User.where(email: params[:email]).first_or_create
+      user = User.where(auth_id: decoded_token[0]["sub"]).first_or_create
+    end
+  end
+
+  helper_method :current_user
+
+  private
+
+  def decoded_token
+    @decoded_token ||= begin
+      authorization = request.headers['Authorization']
+      raise InvalidTokenError if authorization.nil?
+
+      token = request.headers['Authorization'].split(' ').last
+      @decoded_token = JWT.decode(token,
+        JWT.base64url_decode(Rails.application.secrets.auth0_client_secret))
+    rescue JWT::DecodeError
+      render text: "Unauthorized", status: :unauthorized
+    end
+  end
+
+  def validate_token
+    begin
+      raise InvalidTokenError if Rails.application.secrets.auth0_client_id != decoded_token[0]["aud"]
+    rescue JWT::DecodeError, InvalidTokenError
+      render text: "Unauthorized", status: :unauthorized
     end
   end
 

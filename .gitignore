@@ -12,4 +12,4 @@
 !/log/.keep
 /tmp
 node_modules/**/*
-frontend/platforms/*
+frontend/platforms/**/*

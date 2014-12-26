@@ -1,7 +1,5 @@
 (function() {
   var NavCtrl = function($scope, $window, $timeout, Store, Actions, $ionicModal, $ionicSideMenuDelegate, $ionicPopover) {
-    $scope.currentUser = Store.getCurrentUser();
-
     $scope.logOut = function() {
       Actions.logOut();
       $timeout(function() { $window.location.reload(true) }, 500);
@@ -37,7 +35,7 @@
     });
 
     /* Liked Shows Modal */
-    $ionicModal.fromTemplateUrl('liked.html', {
+    $ionicModal.fromTemplateUrl('templates/liked.html', {
       scope: $scope,
       animation: 'fade-in',
       hideDelay: 0
@@ -70,7 +68,7 @@
     });
 
     /* More options popover */
-    $ionicPopover.fromTemplateUrl('more-options-menu.html', {
+    $ionicPopover.fromTemplateUrl('templates/more-options-menu.html', {
       scope: $scope,
     }).then(function(popover) {
       $scope.popover = popover;
