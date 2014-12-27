@@ -2,21 +2,30 @@
   <ion-header-bar>
     <div class="buttons">
       <button ng-click="closeModal()" class="button button-icon close-modal-button ion-close"></button>
+      <span class="shows-modal-title">Shows to Watch</span>
       <a class="more-link-options button button-icon button-clear ion-android-more-vertical"></a>
     </div>
   </ion-header-bar>
-  <ion-content ng-controller="LikedShowsCtrl" class="padding">
-    <ion-list>
-      <ion-item
-        class="item-thumbnail-left liked-show-item"
-        ng-repeat="show in shows">
+  <ion-content ng-controller="LikedShowsCtrl" class="liked-shows-modal-content">
+    <h5 class="shows-modal-section-title">All of your liked and unwatched shows</h5>
+    <div ng-class="{'liked-show-item': true, 'first': isFirstShow($index), 'last': isLastShow($index)}"
+         collection-repeat="show in shows"
+         collection-item-height="rowHeight($index)"
+         style="width: 100%; border: none;">
+      <div class="liked-show-poster">
         <img ng-src="{{show.imageUrl}}">
-        <h2>{{show.title}}</h2>
-        <p>{{show.description}}</p>
-        <ion-option-button class="button-positive" ng-click="complete(show)">
-          Watched it, done!
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
+      </div>
+      <p class="liked-show-details">
+        <h2 class="liked-show-title">
+          {{show.title | limitTo: 50}}
+          <span ng-if="show.title.length >= 50">&hellip;</span>
+        </h2>
+
+        <p class="liked-show-description">
+          <span ng-bind-html="show.description | limitTo: 60 | unsafe"></span>
+          <span ng-if="show.description.length >= 60">&hellip;</span>
+        </p>
+      </p>
+    </div>
   </ion-content>
 </ion-modal-view>
