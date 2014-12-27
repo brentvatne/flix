@@ -59,7 +59,7 @@
       },
 
       getRegion: function() {
-        if (typeof(region) == 'undefined' || region == null) {
+        if (typeof(_repo.region) == 'undefined' || _repo.region == null) {
           _setRegion('canada');
         }
         return _repo.region;

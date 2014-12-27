@@ -28,7 +28,7 @@ if (!window.cordova) {
   loadScript('http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js', function() {
     WebFont.load({
       google: {
-         families: ['Roboto']
+         families: ['Droid Sans']
        }
      });
   });

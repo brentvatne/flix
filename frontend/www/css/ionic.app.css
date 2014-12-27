@@ -7464,7 +7464,7 @@ td-card.card-2 {
   position: absolute;
   bottom: 195px;
   font-weight: 300;
-  font-family: 'Roboto', 'Helvetica Neue';
+  font-family: 'Droid Sans', 'Helvetica Neue';
   font-size: 22px; }
 
 .show-card-description {
@@ -7482,14 +7482,14 @@ td-card.card-2 {
 .show-card-bottom {
   position: absolute;
   bottom: 0px;
-  font-family: 'Roboto', 'Helvetica Neue';
+  font-family: 'Droid Sans', 'Helvetica Neue';
   width: 100%;
   background: #fff;
   height: 200px; }
 
-.show-card-imdb-rating {
-  width: 100%;
-  margin: 0; }
+.show-card-row.show-card-imdb-rating {
+  margin: 0;
+  background: #fafaed; }
 
 .imdb-branding {
   color: #C6A900;
@@ -7497,7 +7497,8 @@ td-card.card-2 {
 
 .imdb-rating {
   float: right;
-  color: #827c7c; }
+  color: #827c7c;
+  font-weight: bold; }
 
 .show-card-row {
   width: 100%;
@@ -7568,7 +7569,7 @@ td-card.card-2 {
   margin-left: 10px; }
 
 .close-modal-button {
-  margin-top: 4px;
+  margin-top: 3px;
   margin-left: -5px; }
 
 .modal .more-link-options:before {

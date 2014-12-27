@@ -1,8 +1,22 @@
 (function() {
-  var NavCtrl = function($scope, $window, $timeout, Store, Actions, $ionicModal, $ionicSideMenuDelegate, $ionicPopover) {
+  var NavCtrl = function($scope, $window, $timeout, Store, Actions, AppConstants, $ionicModal, $ionicSideMenuDelegate, $ionicPopover) {
     Store.bindState($scope, function(action) {
       $scope.region = Store.getRegion();
+
+      if (action && action.actionType == AppConstants.SET_REGION) {
+        $timeout((function() {
+          Actions.fetchShows();
+        }), 0);
+      }
     });
+
+    $scope.changeRegion = function() {
+      if ($scope.region == 'canada') {
+        Actions.setRegion('usa');
+      } else {
+        Actions.setRegion('canada');
+      }
+    }
 
     $scope.regionalFlagUrl = function() {
       if ($scope.region == null) {

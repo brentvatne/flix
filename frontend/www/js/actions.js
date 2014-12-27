@@ -74,6 +74,15 @@
       dislikeShow: function(showId) {
         var userEmail = (Store.getCurrentUser() || {}).email;
         FlixApi.dislikeShow(showId, userEmail);
+      },
+
+      setRegion: function(newRegion) {
+        payload = {
+          actionType: AppConstants.SET_REGION,
+          region: newRegion
+        }
+
+        Dispatcher.handleViewAction(payload);
       }
     }
   }
