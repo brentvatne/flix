@@ -1,12 +1,17 @@
 class AllFlicksApi
-  BASE_URL = "http://www.allflicks.net/wp-content/themes/responsive/processing/server_processing_canada.php?sEcho=3&iColumns=7&sColumns=&iDisplayStart={displayStartVal}&iDisplayLength=100&mDataProp_0=&mDataProp_1=1&mDataProp_2=2&mDataProp_3=3&mDataProp_4=4&mDataProp_5=5&mDataProp_6=6&sSearch=&bRegex=false&sSearch_0=&bRegex_0=false&bSearchable_0=true&sSearch_1=&bRegex_1=false&bSearchable_1=true&sSearch_2=&bRegex_2=false&bSearchable_2=true&sSearch_3=&bRegex_3=false&bSearchable_3=true&sSearch_4=&bRegex_4=false&bSearchable_4=true&sSearch_5=&bRegex_5=false&bSearchable_5=true&sSearch_6=&bRegex_6=false&bSearchable_6=true&iSortCol_0=6&sSortDir_0=desc&iSortingCols=1&bSortable_0=false&bSortable_1=false&bSortable_2=true&bSortable_3=true&bSortable_4=true&bSortable_5=true&bSortable_6=true&min=&max=&movies=&shows="
+  BASE_URL = "http://www.allflicks.net/wp-content/themes/responsive/processing/server_processing_{region}.php?sEcho=3&iColumns=7&sColumns=&iDisplayStart={displayStartVal}&iDisplayLength=100&mDataProp_0=&mDataProp_1=1&mDataProp_2=2&mDataProp_3=3&mDataProp_4=4&mDataProp_5=5&mDataProp_6=6&sSearch=&bRegex=false&sSearch_0=&bRegex_0=false&bSearchable_0=true&sSearch_1=&bRegex_1=false&bSearchable_1=true&sSearch_2=&bRegex_2=false&bSearchable_2=true&sSearch_3=&bRegex_3=false&bSearchable_3=true&sSearch_4=&bRegex_4=false&bSearchable_4=true&sSearch_5=&bRegex_5=false&bSearchable_5=true&sSearch_6=&bRegex_6=false&bSearchable_6=true&iSortCol_0=6&sSortDir_0=desc&iSortingCols=1&bSortable_0=false&bSortable_1=false&bSortable_2=true&bSortable_3=true&bSortable_4=true&bSortable_5=true&bSortable_6=true&min=&max=&movies=&shows="
 
-  def initialize
+  def initialize(region = 'canada')
     @shows = {}
+    @region = region
+  end
+
+  def base_url
+    BASE_URL.gsub('{region}', @region)
   end
 
   def endpoint(start_at)
-    BASE_URL.gsub(
+    base_url.gsub(
       '{displayStartVal}',
       start_at.to_s
     )

@@ -8,7 +8,7 @@ class ShowsController < ApplicationController
     if params[:preferences].present?
       filter_options = params[:preferences]
       filter_options = filter_options.merge(user: current_user)
-      @shows = Show.filter(filter_options).limit(15)
+      @shows = scoped_shows.filter(filter_options).limit(15)
     else
       @shows = []
     end
@@ -41,6 +41,17 @@ class ShowsController < ApplicationController
   end
 
   private
+
+  def scoped_shows
+    @scope_shows ||= begin
+      region = request.headers['Region']
+      if region == 'canada'
+        @shows = Show.canada
+      else if region == 'usa'
+        @shows = Show.usa
+      end
+    end
+  end
 
   def find_show
     @show = Show.find(params[:id])

@@ -1,5 +1,16 @@
 (function() {
   var NavCtrl = function($scope, $window, $timeout, Store, Actions, $ionicModal, $ionicSideMenuDelegate, $ionicPopover) {
+    Store.bindState($scope, function(action) {
+      $scope.region = Store.getRegion();
+    });
+
+    $scope.regionalFlagUrl = function() {
+      if ($scope.region == null) {
+        return null;
+      }
+      return '/images/' + $scope.region + '.png'
+    }
+
     $scope.logOut = function() {
       Actions.logOut();
       $timeout(function() { $window.location.reload(true) }, 500);

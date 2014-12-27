@@ -17,7 +17,11 @@
         StatusBar.styleDefault();
       }
     });
-  })
+  });
+
+  app.config(function($httpProvider) {
+    $httpProvider.interceptors.push('regionHttpInterceptor')
+  });
 
   app.filter('unsafe', function($sce) { return $sce.trustAsHtml; });
 })();

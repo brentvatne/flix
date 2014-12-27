@@ -10,7 +10,6 @@
 
     $scope.isLastShow = function(i) {
       if (i == $scope.shows.length - 1) {
-        console.log("yup it's the last one!");
         return true;
       }
     }

@@ -96,16 +96,31 @@
   height: 33px;
   width: 33px;
   overflow: hidden;
-  position: absolute;
-  right: 45px;
   text-align: center;
   border-radius: 40px;
+}
+
+.user-info-container {
+  position: absolute;
+  right: 45px;
   margin-top: 3px;
+}
+
+.user-info-container .regional-flag {
+  position: absolute;
+  top: 0px;
+  left: -10px;
+  width: 20px;
 }
 
 .more-link-options {
   position: absolute;
   right: 20px;
+}
+
+.main-app-nav .more-link-options {
+  right: -23px !important;
+  top: -3px !important;
 }
 
 .bar-header .button-icon.more-link-options:before {

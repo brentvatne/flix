@@ -11,12 +11,16 @@
                class="button button-icon button-clear ion-android-list favorites-button ng-class:{'button-positive': likedShowsModalIsOpen}">
             </a>
 
-            <a class="user-avatar"/>
-              <img ng-src="{{currentUser.picture}}" />
-            </a>
-            <a class="more-link-options button button-icon button-clear ion-android-more-vertical ng-class:{'button-positive': moreOptionsPopoverIsOpen}"
-               ng-click="openPopover($event)">
-            </a>
+            <div class="user-info-container">
+              <img ng-src="{{regionalFlagUrl()}}" class="regional-flag" />
+              <div class="user-avatar">
+                <img ng-src="{{currentUser.picture}}" />
+              </a>
+
+              <a class="more-link-options button button-icon button-clear ion-android-more-vertical ng-class:{'button-positive': moreOptionsPopoverIsOpen}"
+                 ng-click="openPopover($event)">
+              </a>
+            </div>
           </div>
         </div>
       </ion-header-bar>

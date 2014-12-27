@@ -56,7 +56,7 @@ td-card.card-2 {
 
 /* Cards */
 .cards-container {
-  background: #242424;
+  background: #1D1D1D;
 }
 
 .show-card-container {
@@ -92,17 +92,16 @@ td-card.card-2 {
   color: #fff;
   background: rgba(0, 0, 0, 0.98);
   width: 100%;
-  margin: 0;
+  margin: 135px 0 0 0;
   padding: 20px 10px;
   box-shadow: 2px 2px 2px 2px rgba(100,100,100,0.2);
 }
 
 .show-card-subtitle {
-  background: rgba(45, 45, 45, 0.95);
+  background: rgba(33, 33, 33, 1);
   width: 100%;
   margin: 0;
-  padding: 12px 10px;
-  box-shadow: 2px 2px 8px 3px rgba(0, 0, 0, 0.6);
+  padding: 15px 10px;
   z-index: 500;
   color: #FFFFFF;
   text-transform: uppercase;
@@ -110,26 +109,20 @@ td-card.card-2 {
 }
 
 .show-card-description {
-  position: absolute;
-  bottom: 40px;
-  left: 0px;
   width: 100%;
   color: #fff;
-  padding: 15px 10px 15px 10px;
+  padding: 10px;
   margin: 0;
   background: rgba(0,0,0,0.8);
 }
 
 .show-card-imdb-rating {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
   width: 100%;
   color: #fff;
   padding: 10px;
   margin: 0;
-  color: rgba(253, 253, 211, 0.8);
-  background: rgba(228, 191, 42, 0.94);
+  color: rgba(255, 255, 207, 0.88);
+  background: rgba(201, 164, 17, 0.9);
   font-weight: bold;
 }
 

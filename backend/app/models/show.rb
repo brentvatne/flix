@@ -1,4 +1,7 @@
 class Show < ActiveRecord::Base
+  scope :canada, -> { where(region: 'canada') }
+  scope :usa, -> { where(region: 'usa') }
+
   def self.filter(params)
     query = Show.unscoped
     genres = params[:genre]

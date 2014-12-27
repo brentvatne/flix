@@ -18,6 +18,10 @@
       _repo.prefs = angular.copy(newPrefs);
     }
 
+    var _setRegion = function(region) {
+      _repo.region = region;
+    }
+
     var _logIn = function(userData) {
       _repo.currentUser = angular.copy(userData);
       _repo.currentUser.picture = _repo.currentUser.profile.picture;
@@ -30,7 +34,7 @@
 
     // Initialize them if this is the first time
     //
-    if (!_repo.prefs) { _resetPrefs(); }
+    if (!_repo.prefs) { _resetPrefs(); _setRegion('canada'); }
 
     /* Public Api */
     var store = FluxUtil.createStore({
@@ -52,6 +56,13 @@
 
       getPrefs: function() {
         return _repo.prefs;
+      },
+
+      getRegion: function() {
+        if (typeof(region) == 'undefined' || region == null) {
+          _setRegion('canada');
+        }
+        return _repo.region;
       },
 
       dispatcherIndex: Dispatcher.register(function(payload) {
@@ -85,6 +96,10 @@
               break;
             case AppConstants.UPDATE_AUTH_TOKEN:
               _updateAuthToken(action.token);
+              store.emitChange(action);
+              break;
+            case AppConstants.SET_REGION:
+              _setRegion(action.region);
               store.emitChange(action);
               break;
             case AppConstants.LIKE_SHOW:
