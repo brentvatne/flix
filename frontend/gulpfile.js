@@ -16,7 +16,7 @@ var paths = {
   vendor: ['./www/lib/**/*']
 };
 
-gulp.task('default', ['sass', 'js', 'vendor']);
+gulp.task('default', ['sass', 'js']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')

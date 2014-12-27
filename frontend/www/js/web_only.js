@@ -6,6 +6,8 @@ if (!window.cordova) {
       } else {
         e.preventDefault();
       }
+      // else if (e.target.classList.indexOf('cards-container') > 0) {
+      // e.preventDefault();
     });
   });
 

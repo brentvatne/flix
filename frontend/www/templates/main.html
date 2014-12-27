@@ -16,11 +16,11 @@
               <div class="user-avatar" ng-click="changeRegion()">
                 <img ng-src="{{currentUser.picture}}" />
               </div>
-
-              <a class="more-link-options button button-icon button-clear ion-android-more-vertical ng-class:{'button-positive': moreOptionsPopoverIsOpen}"
-                 ng-click="openPopover($event)">
-              </a>
             </div>
+
+            <a class="more-link-options button button-icon button-clear ion-android-more-vertical ng-class:{'button-positive': moreOptionsPopoverIsOpen}"
+               ng-click="openPopover($event)">
+            </a>
           </div>
         </div>
       </ion-header-bar>
@@ -63,61 +63,99 @@
           </ion-item>
 
           <ion-item class="item-divider">Genres</ion-item>
-          <ion-checkbox ng-model="prefs.genre.action" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.action"
+                        on-hold="exclusivelySelectGenre('action')"
+                        ng-change="update()">
             Action &amp; Adventure
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.anime" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.anime"
+                        on-hold="exclusivelySelectGenre('anime')"
+                        ng-change="update()">
             Anime
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.canadian" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.canadian"
+                        on-hold="exclusivelySelectGenre('canadian')"
+                        ng-change="update()">
             Canadian Movies
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.classic" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.classic"
+                        on-hold="exclusivelySelectGenre('classic')"
+                        ng-change="update()">
             Classic Movies
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.comedy" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.comedy"
+                        on-hold="exclusivelySelectGenre('comedy')"
+                        ng-change="update()">
             Comedies
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.documentary" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.documentary"
+                        on-hold="exclusivelySelectGenre('documentary')"
+                        ng-change="update()">
             Documentaries
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.dramas" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.dramas"
+                        on-hold="exclusivelySelectGenre('dramas')"
+                        ng-change="update()">
             Dramas
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.faith" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.faith"
+                        on-hold="exclusivelySelectGenre('faith')"
+                        ng-change="update()">
             Faith &amp; Spirituality
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.foreign" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.foreign"
+                        on-hold="exclusivelySelectGenre('foreign')"
+                        ng-change="update()">
             Foreign Movies
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.gay" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.gay"
+                        on-hold="exclusivelySelectGenre('gay')"
+                        ng-change="update()">
             Gay &amp; Lesbian Movies
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.horror" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.horror"
+                        on-hold="exclusivelySelectGenre('horror')"
+                        ng-change="update()">
             Horror
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.independent" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.independent"
+                        on-hold="exclusivelySelectGenre('independent')"
+                        ng-change="update()">
             Independent Movies
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.music" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.music"
+                        on-hold="exclusivelySelectGenre('music')"
+                        ng-change="update()">
             Music
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.romantic" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.romantic"
+                        on-hold="exclusivelySelectGenre('romantic')"
+                        ng-change="update()">
             Romantic Comedies
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.scifi" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.scifi"
+                        on-hold="exclusivelySelectGenre('scifi')"
+                        ng-change="update()">
             Sci-Fi &amp; Fantasy
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.specialInterest" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.specialInterest"
+                        on-hold="exclusivelySelectGenre('specialInterest')"
+                        ng-change="update()">
             Special Interest
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.tv" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.tv"
+                        on-hold="exclusivelySelectGenre('tv')"
+                        ng-change="update()">
             TV Shows
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.thrillers" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.thrillers"
+                        on-hold="exclusivelySelectGenre('thrillers')"
+                        ng-change="update()">
             Thrillers
           </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.children" ng-change="update()">
+          <ion-checkbox ng-model="prefs.genre.children"
+                        on-hold="exclusivelySelectGenre('children')"
+                        ng-change="update()">
             Children &amp; Family Movies
           </ion-checkbox>
         </ion-list>

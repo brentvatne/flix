@@ -14,6 +14,16 @@
       _repo.prefs = angular.copy(DEFAULT_PREFS);
     }
 
+    var _markAsGenresAsUnselected = function() {
+      angular.forEach(_repo.prefs.genre, function(value, key) {
+        _repo.prefs.genre[key] = false;
+      });
+    }
+
+    var _selectGenre = function(genre) {
+      _repo.prefs.genre[genre] = true;
+    }
+
     var _setPrefs = function(newPrefs) {
       _repo.prefs = angular.copy(newPrefs);
     }
@@ -105,6 +115,11 @@
             case AppConstants.LIKE_SHOW:
               break;
             case AppConstants.DISLIKE_SHOW:
+              break;
+            case AppConstants.EXCLUSIVELY_SELECT_GENRE:
+              _markAsGenresAsUnselected();
+              _selectGenre(action.genre);
+              store.emitChange(action);
               break;
           }
 

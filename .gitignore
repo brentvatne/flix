@@ -15,3 +15,4 @@ node_modules/**/*
 frontend/platforms/**/*
 backend/tmp/**/*
 frontend/www/dist/**/*
+frontend/www/css/**/*

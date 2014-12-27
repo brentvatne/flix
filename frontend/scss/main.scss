@@ -11,7 +11,6 @@
 }
 
 .shows-modal-section-title {
-  margin-top: 0;
   margin: 0;
   margin-top: -10px;
   margin-bottom: 15px;
@@ -21,7 +20,7 @@
 }
 
 .close-modal-button {
-  margin-top: 3px;
+  margin-top: 2px;
   margin-left: -5px;
 }
 
@@ -32,10 +31,6 @@
 .bar-header .button-icon.close-modal-button:before {
   font-size: 23px !important;
   color: #343434;
-}
-
-.modal .has-header {
-  top: 65px !important;
 }
 
 .modal .bar-header {
@@ -50,19 +45,10 @@
   padding-bottom: 0px;
 }
 
-
-/* .liked-shows-modal-content .scroll { */
-/*   height: 100%; */
-/* } */
-/*  */
-/* .liked-shows-modal-content .scroll-view.ionic-scroll { */
-/*   height: 100% !important; */
-/* } */
-
 /* Header */
 
 .bar-header {
-  padding-top: 16px;
+  padding-top: 14px;
   padding-left: 10px;
   box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.1);
   border-bottom: 1px solid #D9D9D9;
@@ -74,7 +60,7 @@
 }
 
 .favorites-button {
-  margin-left: 5px;
+  margin-left: 6px;
   margin-top: 1px;
 }
 
@@ -84,25 +70,29 @@
 }
 
 .bar-header {
-  height: 65px;
+  height: 60px;
   position: relative;
 }
 
 .has-header {
-  top: 65px !important;
+  top: 60px !important;
 }
 
 .user-avatar {
-  height: 33px;
-  width: 33px;
+  height: 30px;
+  width: 30px;
   overflow: hidden;
   text-align: center;
   border-radius: 40px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .user-info-container {
   position: absolute;
-  right: 45px;
+  right: 40px;
   margin-top: 3px;
 }
 
@@ -111,16 +101,18 @@
   top: 0px;
   left: -10px;
   width: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .more-link-options {
   position: absolute;
-  right: 20px;
-}
-
-.main-app-nav .more-link-options {
-  right: -25px !important;
-  top: -3px !important;
+  right: 5px;
+  top: 13px;
+  text-align: center;
+  width: 32px;
 }
 
 .bar-header .button-icon.more-link-options:before {
@@ -130,7 +122,7 @@
 }
 
 .user-avatar img {
-  max-height: 36px;
+  max-height: 30px;
   border-radius: 2px;
 }
 

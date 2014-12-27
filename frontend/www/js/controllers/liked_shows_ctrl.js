@@ -1,6 +1,13 @@
 (function() {
-  var LikedShowsCtrl = function($scope, Store, Actions) {
-    Store.bindState($scope, function() { $scope.shows = Store.getLikedShows(); });
+  var LikedShowsCtrl = function($scope, Store, Actions, AppConstants, ApiConstants) {
+    $scope.shows = Store.getLikedShows();
+
+    Store.bindState($scope, function(action) {
+      if (action && action.actionType == AppConstants.FETCH_LIKED_SHOWS &&
+          action.response != ApiConstants.PENDING) {
+        $scope.shows = Store.getLikedShows();
+      }
+    });
 
     $scope.isFirstShow = function(i) {
       if (i == 0) {

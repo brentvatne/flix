@@ -82,6 +82,15 @@
           region: newRegion
         }
 
+        Dispatcher.handleServerAction(payload);
+      },
+
+      exclusivelySelectGenre: function(genre) {
+        payload = {
+          actionType: AppConstants.EXCLUSIVELY_SELECT_GENRE,
+          genre: genre
+        }
+
         Dispatcher.handleViewAction(payload);
       }
     }

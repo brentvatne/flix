@@ -13,6 +13,10 @@ td-card {
   border-radius: 2px;
   overflow: hidden;
   box-shadow: 0px 2px 5px 2px rgba(222, 222, 222, 0.6);
+
+  &:hover {
+    cursor: -webkit-grab;
+  }
 }
 
 td-card img {
@@ -200,10 +204,8 @@ td-card.card-2 {
   font-size: 14px;
   line-height: 17px;
   margin: 0;
-}
-
-.liked-show-description {
-  width: 90% !important;
+  width: 300px !important;
+  overflow: hidden;
 }
 
 .liked-show-details {

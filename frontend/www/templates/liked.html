@@ -21,7 +21,8 @@
         </h2>
 
         <p class="liked-show-description">
-          <span ng-bind-html="show.description | limitTo: 60 | unsafe"></span>
+          <span ng-bind-html="show.description | limitTo: 60 | unsafe">
+          </span>
           <span ng-if="show.description.length >= 60">&hellip;</span>
         </p>
       </p>
