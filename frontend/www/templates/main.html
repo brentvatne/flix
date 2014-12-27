@@ -45,8 +45,9 @@
           <ion-item class="item-divider">
             Minimum IMDb Rating: {{prefs.minImdbRating}}
           </ion-item>
-          <ion-item class="range range-positive">
+          <ion-item class="range range-positive web-draggable">
             <input type="range" min="0.0" max="10.0" step="0.1"
+                   class="web-draggable"
                    ng-model="prefs.minImdbRating"
                    ng-change="update()">
           </ion-item>
@@ -54,8 +55,9 @@
           <ion-item class="item-divider">
             Minimum Release Year: {{prefs.minReleaseYear}}
           </ion-item>
-          <ion-item class="range range-positive">
+          <ion-item class="range range-positive web-draggable">
             <input type="range" min="1900" max="2015"
+                   class="web-draggable"
                    ng-model="prefs.minReleaseYear"
                    ng-change="update()">
           </ion-item>

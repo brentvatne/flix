@@ -15,6 +15,11 @@ td-card {
   box-shadow: 0px 2px 5px 2px rgba(222, 222, 222, 0.6);
 }
 
+td-card img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 td-card.card-0 {
   -webkit-transform: translate3d(0, 0px, 0);
   transform: translate3d(0, 0px, 0);
@@ -78,7 +83,7 @@ td-card.card-2 {
   width: 305px;
   height: 100%;
   opacity: 0.8;
-  -webkit-filter: brightness(0.5) contrast(1.4) saturate(1);
+  -webkit-filter: brightness(0.5) contrast(1.4);
   border-radius: 2px;
   margin: 1px;
 }
@@ -99,7 +104,7 @@ td-card.card-2 {
   position: absolute;
   bottom: 195px;
   font-weight: 300;
-  font-family: 'Roboto';
+  font-family: 'Roboto', 'Helvetica Neue';
   font-size: 22px;
 }
 
@@ -120,7 +125,7 @@ td-card.card-2 {
 .show-card-bottom {
   position: absolute;
   bottom: 0px;
-  font-family: 'Roboto';
+  font-family: 'Roboto', 'Helvetica Neue';
   width: 100%;
   background: #fff;
   height: 200px;
@@ -161,7 +166,7 @@ td-card.card-2 {
 }
 
 .liked-show-item.last {
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.07);
+  // box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.07);
 }
 
 .liked-show-item {

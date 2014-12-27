@@ -1,8 +1,35 @@
 if (!window.cordova) {
   // Disable overscroll
   document.addEventListener("DOMContentLoaded", function(event) {
-    document.body.addEventListener('touchmove',function(e){
-       e.preventDefault();
+    document.body.addEventListener('touchmove',function(e) {
+      if (e.target && e.target.type == "range") {
+      } else {
+        e.preventDefault();
+      }
+    });
+  });
+
+  function loadScript(url, callback) {
+    // Adding the script tag to the head as suggested before
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+
+    // Then bind the event to the callback function.
+    // There are several events for cross browser compatibility.
+    script.onreadystatechange = callback;
+    script.onload = callback;
+
+    // Fire the loading
+    head.appendChild(script);
+  }
+
+  loadScript('http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js', function() {
+    WebFont.load({
+      google: {
+         families: ['Roboto']
+       }
      });
   });
 
