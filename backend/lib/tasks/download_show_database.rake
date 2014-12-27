@@ -25,11 +25,11 @@ task(download_usa_show_database: :environment) do
     shows = api.shows(start_at: start_at)
     shows.each do |show|
       Show.create(show.merge(region: 'usa'))
-      puts "Created #{show[:title]}."
+      puts "created #{show[:title]}."
     end
     start_at = start_at + 100
     if shows.length < 100
-      puts "Stopping at #{start_at}"
+      puts "stopping at #{start_at}"
       puts shows.length
       break
     end

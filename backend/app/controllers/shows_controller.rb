@@ -45,9 +45,10 @@ class ShowsController < ApplicationController
   def scoped_shows
     @scope_shows ||= begin
       region = request.headers['Region']
+
       if region == 'canada'
         @shows = Show.canada
-      else if region == 'usa'
+      elsif region == 'usa'
         @shows = Show.usa
       end
     end

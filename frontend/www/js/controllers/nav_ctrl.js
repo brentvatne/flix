@@ -8,7 +8,7 @@
       if ($scope.region == null) {
         return null;
       }
-      return '/images/' + $scope.region + '.png'
+      return 'images/' + $scope.region + '.png'
     }
 
     $scope.logOut = function() {
