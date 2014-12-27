@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141227050806) do
+ActiveRecord::Schema.define(version: 20141227162359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "dislikes", force: :cascade do |t|
     t.integer "user_id"
@@ -36,7 +37,11 @@ ActiveRecord::Schema.define(version: 20141227050806) do
     t.integer "year"
     t.decimal "imdb_rating"
     t.text    "image_url"
-    t.string  "region",      default: "canada"
+    t.string  "region",           default: "canada"
+    t.integer "trakt_id"
+    t.text    "trakt_poster_url"
+    t.hstore  "trakt_data"
+    t.string  "colors",           default: [],       array: true
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,7 +1,9 @@
 ### Swipe movies in Netflix like people on Tinder
 
-Check out the [demo gif](https://github.com/brentvatne/tinder-netflix/blob/master/demo.gif).
-Be warned, it's 6mb, so you might not want to if you're on a mobile device.
+![Interface screenshots](https://github.com/brentvatne/tinder-netflix/blob/master/interface.png)
+
+Check out the [demo video](http://url.brentvatne.ca/LMhq). It's a 20mb
+mp4 file so you may not want to check it out if you're on mobile.
 
 Or you can try it out at
 [http://flix.brentvatne.ca](http://flix.brentvatne.ca/) - it's not the
@@ -20,12 +22,8 @@ There's a lot of low hanging fruit to improve on the front end:
 
 - Animation performance
 - Loading indicators
-- More information on the cards (have a bunch in the database for each
-  title, thanks to allflicks.net)
 - Expand to have option to switch between countries
-- Better auth/backend
 - Higher res images
-- Better aesthetics overall
 
 etc...
 

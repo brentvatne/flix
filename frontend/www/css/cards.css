@@ -10,6 +10,9 @@ td-card {
   margin-left: -150px;
   width: 300px;
   height: 400px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0px 2px 5px 2px rgba(222, 222, 222, 0.6);
 }
 
 td-card.card-0 {
@@ -56,7 +59,7 @@ td-card.card-2 {
 
 /* Cards */
 .cards-container {
-  background: #1D1D1D;
+  background: #EDEDED;
 }
 
 .show-card-container {
@@ -64,18 +67,18 @@ td-card.card-2 {
   width: 300px;
   height: 400px;
   overflow: hidden;
-  box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.6);
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
 }
 
 .show-card-poster-glass {
   background-size: cover;
   position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
+  top: -80px;
+  left: -3px;
+  width: 305px;
   height: 100%;
   opacity: 0.8;
-  -webkit-filter: blur(4px) brightness(0.7) contrast(1.2) saturate(1.0);
+  -webkit-filter: brightness(0.5) contrast(1.4) saturate(1);
   border-radius: 2px;
   margin: 1px;
 }
@@ -90,40 +93,65 @@ td-card.card-2 {
 
 .show-card-title {
   color: #fff;
-  background: rgba(0, 0, 0, 0.98);
   width: 100%;
-  margin: 135px 0 0 0;
-  padding: 20px 10px;
-  box-shadow: 2px 2px 2px 2px rgba(100,100,100,0.2);
-}
-
-.show-card-subtitle {
-  background: rgba(19, 19, 19, 1);
-  width: 100%;
-  margin: 0;
-  padding: 15px 10px;
-  z-index: 500;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  font-size: 12px;
+  margin: 0 0 0 0;
+  padding: 15px 15px;
+  position: absolute;
+  bottom: 195px;
+  font-weight: 300;
+  font-family: 'Roboto';
+  font-size: 22px;
 }
 
 .show-card-description {
   width: 100%;
-  color: #fff;
-  padding: 10px;
   margin: 0;
-  background: rgba(0,0,0,0.8);
+  padding: 15px;
+  overflow: hidden;
+}
+
+.show-card-genre {
+  margin: 2px 0 7px 0;
+  font-size: 14px;
+  color: #999999;
+  font-weight: normal;
+}
+
+.show-card-bottom {
+  position: absolute;
+  bottom: 0px;
+  font-family: 'Roboto';
+  width: 100%;
+  background: #fff;
+  height: 200px;
 }
 
 .show-card-imdb-rating {
   width: 100%;
-  color: #fff;
-  padding: 10px;
   margin: 0;
-  color: rgba(255, 255, 207, 0.88);
-  background: rgba(201, 164, 17, 0.9);
-  font-weight: bold;
+}
+
+.imdb-branding {
+  color: #C6A900;
+  font-weight: 900;
+}
+
+.imdb-rating {
+  float: right;
+  color: #827c7c;
+}
+
+.show-card-row {
+  width: 100%;
+  border-top: 1px solid #eee;
+  background: #fff;
+  padding: 10px;
+}
+
+.show-card-actions {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 /* Liked show table */
@@ -140,7 +168,7 @@ td-card.card-2 {
   padding-top: 15px;
   background: #fff;
   overflow: hidden;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   position: relative;
   padding-left: 60px;
   height: 90px;
@@ -152,20 +180,19 @@ td-card.card-2 {
   position: absolute;
   top: 18px;
   left: 8px;
-  box-shadow: 2px 2px 2px 2px rgba(138, 138, 138, 0.2);
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 
 .liked-show-title {
   font-weight: bold;
   padding-top: 0px;
   font-size: 16px;
-  margin: 0;
+  margin: 0 0 2px 0;
 }
 
 .liked-show-description {
   font-size: 14px;
+  line-height: 17px;
   margin: 0;
 }
 

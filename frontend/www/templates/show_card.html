@@ -1,22 +1,23 @@
-<div class="show-card-container" ng-if="show.imageUrl" style="background: url({{show.imageUrl}}); background-size: cover;">
-  <div class="show-card-poster-glass" style="background: url({{show.imageUrl}}); background-size: cover;"></div>
+<div class="show-card-container" ng-if="show.imageUrl">
+  <div class="show-card-poster-glass"
+    style="background: url({{show.imageUrl}}); background-size: cover;"></div>
   <div class="show-card-details-container">
-    <h4 class="show-card-title">
+    <h4 class="show-card-title" style="text-shadow: 1px 2px 4px #{{show.primaryColor}};">
       {{show.title}}
     </h4>
-    <p class="show-card-description">
-      <span ng-bind-html="show.description | limitTo: 180 | unsafe"></span>
-      <span ng-if="show.description.length >= 180">&hellip;</span>
-      <!-- <br/> -->
-      <!-- Director: {{show.director}} -->
-      <!-- <br/> -->
-      <!-- Notable cast: {{show.cast | limitTo: 40}} {{show.cast.length < 40 ? '' : "..."}} -->
-    </p>
-    <h5 class="show-card-subtitle">
-      <span ng-bind-html="show.genre | unsafe"></span>
-    </h5>
-    <div class="show-card-imdb-rating">
-      IMDb Rating: {{show.imdbRating}}
+    <div class="show-card-bottom">
+      <div class="show-card-description">
+        <h4 class="show-card-genre" ng-bind-html="show.genre | unsafe"></h4>
+        <span ng-bind-html="show.description | limitTo: 180 | unsafe"></span>
+        <span ng-if="show.description.length >= 180">&hellip;</span>
+      </div>
+
+      <div class="show-card-actions">
+        <div class="show-card-row show-card-imdb-rating">
+          <span class="imdb-branding">IMDb Rating</span>
+          <span class="imdb-rating">{{show.imdbRating}}</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>

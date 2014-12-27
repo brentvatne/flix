@@ -8,7 +8,8 @@ class ShowsController < ApplicationController
     if params[:preferences].present?
       filter_options = params[:preferences]
       filter_options = filter_options.merge(user: current_user)
-      @shows = scoped_shows.filter(filter_options).limit(15)
+      filter_options = filter_options.merge(region: request.headers['Region'])
+      @shows = Show.filter(filter_options).limit(10)
     else
       @shows = []
     end
@@ -42,32 +43,11 @@ class ShowsController < ApplicationController
 
   private
 
-  def scoped_shows
-    @scope_shows ||= begin
-      region = request.headers['Region']
-
-      if region == 'canada'
-        @shows = Show.canada
-      elsif region == 'usa'
-        @shows = Show.usa
-      end
-    end
-  end
-
   def find_show
     @show = Show.find(params[:id])
   end
 
   def serialize_show(show)
-    { id: show.id,
-      netflixId: show.netflix_id,
-      genre: show.genre,
-      cast: show.cast,
-      title: show.title,
-      director: show.director,
-      description: show.description,
-      year: show.year,
-      imdbRating: show.imdb_rating,
-      imageUrl: show.image_url }
+    ShowSerializer.new(show, root: false)
   end
 end

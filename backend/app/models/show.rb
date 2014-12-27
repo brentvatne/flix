@@ -2,9 +2,21 @@ class Show < ActiveRecord::Base
   scope :canada, -> { where(region: 'canada') }
   scope :usa, -> { where(region: 'usa') }
 
+  def poster_url
+    trakt_images['poster'] || image_url
+  end
+
+  def trakt_images
+    if trakt_data.present? && trakt_data['images'].present?
+      eval(trakt_data['images'])
+    else
+      {}
+    end
+  end
+
   def self.filter(params)
     query = Show.unscoped
-    genres = params[:genre]
+    genres = params[:genre] || {}
     filter_by_genres = []
 
     if genres[:thrillers]
@@ -75,10 +87,6 @@ class Show < ActiveRecord::Base
       filter_by_genres << 'Canadian Movies'
     end
 
-    if genres[:canadian]
-      filter_by_genres << 'Canadian Movies'
-    end
-
     if genres[:children]
       filter_by_genres << 'Children &amp; Family Movies'
     end
@@ -91,7 +99,9 @@ class Show < ActiveRecord::Base
       filter_by_genres << 'Action &amp; Adventure'
     end
 
-    query = query.where(genre: filter_by_genres)
+    if filter_by_genres.any?
+      query = query.where(genre: filter_by_genres)
+    end
 
     if params[:min_release_year]
       query = query.where('year >= ?', params[:min_release_year])
@@ -105,6 +115,10 @@ class Show < ActiveRecord::Base
       if (show_ids = user.show_ids).any?
         query = query.where('shows.id not in (?)', user.show_ids)
       end
+    end
+
+    if region = params[:region]
+      query = query.where('region = ?', region)
     end
 
     query

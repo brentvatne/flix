@@ -47,6 +47,9 @@ GEM
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
     coderay (1.1.0)
+    color (1.7.1)
+    colorscore (0.0.4)
+      color
     columnize (0.9.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
@@ -153,6 +156,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   byebug
+  colorscore
   dotenv-rails
   httparty
   jwt

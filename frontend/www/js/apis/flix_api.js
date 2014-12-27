@@ -1,6 +1,7 @@
 (function() {
   var FlixApi = function($http, Dispatcher, AppConstants, ApiConstants) {
     var BASE_URL = 'http://flix-api.brentvatne.ca';
+    // var BASE_URL = 'http://localhost:3000';
 
     /* Private Methods */
     var handleResponse = function(key, params) {
