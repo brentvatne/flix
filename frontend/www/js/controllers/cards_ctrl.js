@@ -1,5 +1,5 @@
 (function() {
-  var CardsCtrl = function($scope, Store, Actions, $ionicSideMenuDelegate) {
+  var CardsCtrl = function($scope, Store, PosterPreloader, Actions, $ionicSideMenuDelegate) {
     $scope.sideMenuIsOpen = function() {
       return $ionicSideMenuDelegate.isOpenLeft();
     }

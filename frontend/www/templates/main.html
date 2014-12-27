@@ -22,14 +22,14 @@
       </ion-header-bar>
 
       <ion-content padding="true" scroll="false" ng-class="{'cards-container': true, 'out-of-focus': sideMenuIsOpen()}" ng-controller="CardsCtrl">
-          <td-cards>
+        <td-cards ng-if="shows.length">
             <td-card ng-repeat="show in shows | limitTo: 1"
                      on-partial-swipe="partialSwipeShow($index)"
                      on-snap-back="snapBackShow($index)"
                      on-destroy="destroyShow($index)"
                      my-on-swipe-right="likedShow($index)"
                      my-on-swipe-left="dislikedShow($index)">
-              <img ng-src="{{show.imageUrl}}">
+              <show-card show="show"></show-card>
             </td-card>
           </td-cards>
       </ion-content>

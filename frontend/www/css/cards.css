@@ -10,9 +10,6 @@ td-card {
   margin-left: -150px;
   width: 300px;
   height: 400px;
-  border-radius: 6px;
-  background: #F3F3F3;
-  border: 1px solid #ccc;
 }
 
 td-card.card-0 {

@@ -68,7 +68,7 @@
     });
 
     /* More options popover */
-    $ionicPopover.fromTemplateUrl('templates/more-options-menu.html', {
+    $ionicPopover.fromTemplateUrl('templates/more_options_menu.html', {
       scope: $scope,
     }).then(function(popover) {
       $scope.popover = popover;
