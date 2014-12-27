@@ -8,11 +8,11 @@ class ShowSerializer < ActiveModel::Serializer
   end
 
   def primary_color
-    object.colors.first || '#000000'
+    object.colors.first || '000000'
   end
 
   def primary_contrast_color
-    color = object.colors.first || '#000000'
+    color = object.colors.first || '000000'
     brightness_value = (color.scan(/../).map {|color| color.hex}).sum
     brightness_value > 382.5 ? '222222' : 'ffffff'
   end

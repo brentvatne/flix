@@ -1,6 +1,7 @@
-<div class="show-card-container" ng-if="show.imageUrl">
+<div class="show-card-container" ng-if="show.imageUrl"
+     style="background: #{{show.primaryColor}}">
   <div class="show-card-poster-glass"
-    style="background: url({{show.imageUrl}}); background-size: cover;"></div>
+     style="background: url({{show.imageUrl}}); background-size: cover;"></div>
   <div class="show-card-details-container">
     <h4 class="show-card-title" style="text-shadow: 1px 2px 4px #{{show.primaryColor}};">
       {{show.title}}
