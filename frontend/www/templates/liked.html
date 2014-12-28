@@ -10,6 +10,7 @@
     <div ng-class="{'liked-show-item': true, 'first': isFirstShow($index), 'last': isLastShow($index)}"
          collection-repeat="show in shows"
          collection-item-height="rowHeight($index)"
+         ng-click="openWithNetflix(show)"
          style="width: 100%; border: none;">
       <div class="liked-show-poster">
         <img ng-src="{{show.imageUrl}}">

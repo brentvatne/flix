@@ -1,3 +1,7 @@
+$card-width: 310px;
+$card-height: 450px;
+$card-bottom-height: $card-height / 1.75;
+
 td-cards {
   display: block;
 }
@@ -6,10 +10,9 @@ td-card {
   position: absolute;
   left: 50%;
   margin-top: 20px;
-  margin-bottom: 40px;
-  margin-left: -150px;
-  width: 300px;
-  height: 400px;
+  margin-left: -1 * $card-width / 2;
+  width: $card-width;
+  height: $card-height;
   border-radius: 2px;
   overflow: hidden;
   box-shadow: 0px 2px 5px 2px rgba(222, 222, 222, 0.6);
@@ -17,6 +20,15 @@ td-card {
   &:hover {
     cursor: -webkit-grab;
   }
+}
+
+.show-card-bottom {
+  position: absolute;
+  bottom: 0px;
+  font-family: 'Droid Sans', 'Helvetica Neue';
+  width: 100%;
+  background: #fff;
+  height: $card-bottom-height;
 }
 
 td-card img {
@@ -73,8 +85,8 @@ td-card.card-2 {
 
 .show-card-container {
   position: relative;
-  width: 300px;
-  height: 400px;
+  width: $card-width;
+  height: $card-height;
   overflow: hidden;
   box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
 }
@@ -84,7 +96,7 @@ td-card.card-2 {
   position: absolute;
   top: -80px;
   left: -3px;
-  width: 305px;
+  width: $card-width + 5px;
   height: 100%;
   opacity: 0.8;
   -webkit-filter: brightness(0.5) contrast(1.4);
@@ -106,7 +118,7 @@ td-card.card-2 {
   margin: 0 0 0 0;
   padding: 15px 15px;
   position: absolute;
-  bottom: 195px;
+  bottom: $card-bottom-height - 10px;
   font-weight: 300;
   font-family: 'Droid Sans', 'Helvetica Neue';
   font-size: 22px;
@@ -117,45 +129,64 @@ td-card.card-2 {
   margin: 0;
   padding: 15px;
   overflow: hidden;
+  box-shadow: 0px -10px 10px 0px rgba(0,0,0,0.4);
+
+  .platform-browser & {
+    font-size: 13px;
+  }
 }
 
 .show-card-genre {
-  margin: 2px 0 7px 0;
+  margin: 3px 0 9px 0;
   font-size: 14px;
   color: #999999;
   font-weight: normal;
 }
 
-.show-card-bottom {
-  position: absolute;
-  bottom: 0px;
-  font-family: 'Droid Sans', 'Helvetica Neue';
-  width: 100%;
-  background: #fff;
-  height: 200px;
-}
-
 .show-card-row.show-card-imdb-rating {
   margin: 0;
-  background: rgb(250, 250, 237);
+  background: #fff;
+  border-top: none;
+  padding: 18px 15px 15px 0px;
 }
 
 .imdb-branding {
   color: #C6A900;
-  font-weight: 900;
+  display: inline-block;
 }
 
 .imdb-rating {
-  float: right;
   color: #827c7c;
-  font-weight: bold;
+  display: inline-block;
+  padding-left: 5px;
+}
+
+.not-interested-button {
+  display: inline-block;
+  padding: 20px 15px 17px 15px;
+  width: 50%;
+  text-align: center;
+}
+
+.add-to-list-button {
+  display: inline-block;
+  padding: 20px 15px 17px 10px;
+  float: right;
+  width: 50%;
+  text-align: center;
 }
 
 .show-card-row {
   width: 100%;
   border-top: 1px solid #eee;
-  background: #fff;
-  padding: 10px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.show-card-buttons {
+  letter-spacing: -0.6px;
+  font-weight: 600;
+  opacity: 0.4;
+  cursor: pointer;
 }
 
 .show-card-actions {
@@ -175,6 +206,7 @@ td-card.card-2 {
 }
 
 .liked-show-item {
+  cursor: pointer;
   padding-top: 15px;
   background: #fff;
   overflow: hidden;
@@ -204,8 +236,11 @@ td-card.card-2 {
   font-size: 14px;
   line-height: 17px;
   margin: 0;
-  width: 300px !important;
   overflow: hidden;
+}
+
+.platform-webview .liked-show-description {
+  width: 300px !important;
 }
 
 .liked-show-details {

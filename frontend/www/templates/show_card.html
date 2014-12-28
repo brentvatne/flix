@@ -3,20 +3,24 @@
   <div class="show-card-poster-glass"
      style="background: url({{show.imageUrl}}); background-size: cover;"></div>
   <div class="show-card-details-container">
-    <h4 class="show-card-title" style="text-shadow: 1px 2px 4px #{{show.primaryColor}};">
-      {{show.title}}
-    </h4>
+    <h4 class="show-card-title" style="text-shadow: 1px 2px 4px #{{show.primaryColor}};"
+        ng-bind-html="show.title | unsafe"></h4>
     <div class="show-card-bottom">
       <div class="show-card-description">
         <h4 class="show-card-genre" ng-bind-html="show.genre | unsafe"></h4>
         <span ng-bind-html="show.description | limitTo: 180 | unsafe"></span>
         <span ng-if="show.description.length >= 180">&hellip;</span>
-      </div>
 
-      <div class="show-card-actions">
         <div class="show-card-row show-card-imdb-rating">
           <span class="imdb-branding">IMDb Rating</span>
           <span class="imdb-rating">{{show.imdbRating}}</span>
+        </div>
+      </div>
+
+      <div class="show-card-actions">
+        <div class="show-card-row show-card-buttons">
+          <a ng-click="dismissShow(show)" class="not-interested-button">NOT INTERESTED</a>
+          <a ng-click="saveShow(show)" class="add-to-list-button">ADD TO LIST</a>
         </div>
       </div>
     </div>

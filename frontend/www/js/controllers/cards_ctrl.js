@@ -4,6 +4,19 @@
       return $ionicSideMenuDelegate.isOpenLeft();
     }
 
+
+    $scope.dismissShow = function(show) {
+      var i = $scope.shows.indexOf(show);
+      $scope.dislikedShow(i);
+      $scope.destroyShow(i);
+    }
+
+    $scope.saveShow = function(show) {
+      var i = $scope.shows.indexOf(show);
+      $scope.likedShow(i);
+      $scope.destroyShow(i);
+    }
+
     /* Card callbacks from swiping */
     $scope.destroyShow = function(index) {
       $scope.shows.splice(index, 1);
