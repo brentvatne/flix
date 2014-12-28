@@ -1,6 +1,10 @@
 if (!window.cordova) {
   // Disable overscroll
   document.addEventListener("DOMContentLoaded", function(event) {
+    // /Mobile/.test(navigator.userAgent) && !location.hash && setTimeout(function () {
+    //     if (!pageYOffset) window.scrollTo(0, 1);
+    // }, 50);
+
     document.body.addEventListener('touchmove',function(e) {
       if (e.target && e.target.type == "range") {
       } else {
