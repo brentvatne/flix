@@ -1,0 +1,66 @@
+$menu-background-color: #2A3A4B;
+$menu-header-background-color: #18232E;
+$menu-shadow-color: #242933;
+
+.menu-content {
+  box-shadow: -1px 0px 26px rgba(0, 0, 0, 0.28), 0px 10px 1px rgba(0, 0, 0, 0.2) !important;
+}
+.preferences-menu {
+  font-family: 'Droid Sans', 'Helvetica Neue';
+  background: $menu-background-color;
+
+  #preferences-menu-header {
+    background: $menu-header-background-color !important;
+    padding: 20px 15px;
+    height: 60px;
+    margin-bottom: 18px;
+    border-bottom: 3px solid $menu-shadow-color;
+
+    h2 {
+      color: #fff;
+      font-family: 'Droid Sans', 'Helvetica Neue';
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  .range {
+    margin-top: -17px !important;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    background: $positive;
+    box-shadow: -1px 0px 0px 0px darken($positive, 10%);
+  }
+
+  .item-checkbox {
+    transition: opacity 0.2 ease-out;
+    padding-top: 14px !important;
+    padding-bottom: 12px !important;
+
+    .platform-android & {
+      padding-left: 51px !important;
+    }
+
+    .checkbox input:before, .checkbox .checkbox-icon:before {
+      transition: opacity 0.2 ease-out;
+      background: $positive;
+      opacity: 0.2;
+    }
+    .checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:before {
+      transition: opacity 0.2 ease-out;
+      opacity: 1;
+    }
+  }
+
+  .item {
+    span.label {
+      opacity: 0.7;
+      font-weight: 500;
+      text-shadow: 0px 0px 1px $menu-shadow-color;
+    }
+
+    color: #fff;
+    background: transparent !important;
+    border: none !important;
+  }
+}

@@ -229,7 +229,7 @@
       this.el.style.transform = this.el.style.webkitTransform = 'translate3d(' + this.x + 'px, ' + this.y  + 'px, 0) rotate(' + (this.rotationAngle || 0) + 'rad)';
 
 
-      this.thresholdAmount = (this.x / (this.parentWidth/2));
+      this.thresholdAmount = (this.x / (this.parentWidth/1.8));
 
       var self = this;
       setTimeout(function() {

@@ -1,7 +1,15 @@
-<ion-content padding="false" scroll="true">
+<ion-content padding="false" scroll="true" class="preferences-menu">
   <ion-list>
+    <ion-item id="preferences-menu-header" class="item-divider">
+      <h2>
+        Preferences
+      </h2>
+    </ion-item>
+
     <ion-item class="item-divider">
-      Minimum IMDb Rating: {{prefs.minImdbRating}}
+      <span class="label">
+        IMDb: <strong>{{prefs.minImdbRating}}</strong> or higher
+      </span>
     </ion-item>
     <ion-item class="range range-positive web-draggable">
       <input type="range" min="0.0" max="10.0" step="0.1"
@@ -11,7 +19,9 @@
     </ion-item>
 
     <ion-item class="item-divider">
-      Minimum Release Year: {{prefs.minReleaseYear}}
+      <span class="label">
+        Release Year: <strong>{{prefs.minReleaseYear}}</strong> or later
+      </span>
     </ion-item>
     <ion-item class="range range-positive web-draggable">
       <input type="range" min="1900" max="2015"
@@ -20,101 +30,158 @@
              ng-change="update()">
     </ion-item>
 
-    <ion-item class="item-divider">Genres</ion-item>
     <ion-checkbox ng-model="prefs.genre.action"
                   on-hold="exclusivelySelectGenre('action')"
+                  ng-class="{'faded': !prefs.genre.action}"
                   ng-change="update()">
-      Action &amp; Adventure
+
+      <span class="label">
+        Action &amp; Adventure
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.anime"
                   on-hold="exclusivelySelectGenre('anime')"
+                  ng-class="{'faded': !prefs.genre.anime}"
                   ng-change="update()">
-      Anime
+      <span class="label">
+        Anime
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.canadian"
                   on-hold="exclusivelySelectGenre('canadian')"
+                  ng-class="{'faded': !prefs.genre.canadian}"
                   ng-change="update()">
-      Canadian Movies
+      <span class="label">
+        Canadian Movies
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.classic"
                   on-hold="exclusivelySelectGenre('classic')"
+                  ng-class="{'faded': !prefs.genre.classic}"
                   ng-change="update()">
-      Classic Movies
+      <span class="label">
+        Classic Movies
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.comedy"
                   on-hold="exclusivelySelectGenre('comedy')"
+                  ng-class="{'faded': !prefs.genre.comedy}"
                   ng-change="update()">
-      Comedies
+      <span class="label">
+        Comedies
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.documentary"
                   on-hold="exclusivelySelectGenre('documentary')"
+                  ng-class="{'faded': !prefs.genre.documentary}"
                   ng-change="update()">
-      Documentaries
+      <span class="label">
+        Documentaries
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.dramas"
                   on-hold="exclusivelySelectGenre('dramas')"
+                  ng-class="{'faded': !prefs.genre.dramas}"
                   ng-change="update()">
-      Dramas
+      <span class="label">
+        Dramas
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.faith"
                   on-hold="exclusivelySelectGenre('faith')"
+                  ng-class="{'faded': !prefs.genre.faith}"
                   ng-change="update()">
-      Faith &amp; Spirituality
+      <span class="label">
+        Faith &amp; Spirituality
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.foreign"
                   on-hold="exclusivelySelectGenre('foreign')"
+                  ng-class="{'faded': !prefs.genre.foreign}"
                   ng-change="update()">
-      Foreign Movies
+      <span class="label">
+        Foreign Movies
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.gay"
                   on-hold="exclusivelySelectGenre('gay')"
+                  ng-class="{'faded': !prefs.genre.gay}"
                   ng-change="update()">
-      Gay &amp; Lesbian Movies
+      <span class="label">
+        Gay &amp; Lesbian Movies
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.horror"
                   on-hold="exclusivelySelectGenre('horror')"
+                  ng-class="{'faded': !prefs.genre.horror}"
                   ng-change="update()">
-      Horror
+      <span class="label">
+        Horror
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.independent"
                   on-hold="exclusivelySelectGenre('independent')"
+                  ng-class="{'faded': !prefs.genre.independent}"
                   ng-change="update()">
-      Independent Movies
+      <span class="label">
+        Independent Movies
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.music"
                   on-hold="exclusivelySelectGenre('music')"
+                  ng-class="{'faded': !prefs.genre.music}"
                   ng-change="update()">
-      Music
+      <span class="label">
+        Music
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.romantic"
                   on-hold="exclusivelySelectGenre('romantic')"
+                  ng-class="{'faded': !prefs.genre.romantic}"
                   ng-change="update()">
-      Romantic Comedies
+      <span class="label">
+        Romantic Comedies
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.scifi"
                   on-hold="exclusivelySelectGenre('scifi')"
+                  ng-class="{'faded': !prefs.genre.scifi}"
                   ng-change="update()">
-      Sci-Fi &amp; Fantasy
+      <span class="label">
+        Sci-Fi &amp; Fantasy
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.specialInterest"
                   on-hold="exclusivelySelectGenre('specialInterest')"
+                  ng-class="{'faded': !prefs.genre.specialInterest}"
                   ng-change="update()">
-      Special Interest
+      <span class="label">
+        Special Interest
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.tv"
                   on-hold="exclusivelySelectGenre('tv')"
+                  ng-class="{'faded': !prefs.genre.tv}"
                   ng-change="update()">
-      TV Shows
+      <span class="label">
+        TV Shows
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.thrillers"
                   on-hold="exclusivelySelectGenre('thrillers')"
+                  ng-class="{'faded': !prefs.genre.thrillers}"
                   ng-change="update()">
-      Thrillers
+      <span class="label">
+        Thrillers
+      </span>
     </ion-checkbox>
     <ion-checkbox ng-model="prefs.genre.children"
                   on-hold="exclusivelySelectGenre('children')"
+                  ng-class="{'faded': !prefs.genre.children}"
                   ng-change="update()">
-      Children &amp; Family Movies
+      <span class="label">
+        Children &amp; Family Movies
+      </span>
     </ion-checkbox>
   </ion-list>
 </ion-content>
