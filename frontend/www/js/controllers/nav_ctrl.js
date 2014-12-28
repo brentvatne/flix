@@ -1,30 +1,5 @@
 (function() {
   var NavCtrl = function($scope, $window, $timeout, Store, Actions, AppConstants, $ionicModal, $ionicSideMenuDelegate, $ionicPopover) {
-    Store.bindState($scope, function(action) {
-      $scope.region = Store.getRegion();
-
-      if (action && action.actionType == AppConstants.SET_REGION) {
-        $timeout((function() {
-          Actions.fetchShows();
-        }), 0);
-      }
-    });
-
-    $scope.changeRegion = function() {
-      if ($scope.region == 'canada') {
-        Actions.setRegion('usa');
-      } else {
-        Actions.setRegion('canada');
-      }
-    }
-
-    $scope.regionalFlagUrl = function() {
-      if ($scope.region == null) {
-        return null;
-      }
-      return 'images/' + $scope.region + '.png'
-    }
-
     $scope.logOut = function() {
       Actions.logOut();
       $timeout(function() { $window.location.reload(true) }, 500);

@@ -4,28 +4,30 @@
       <ion-header-bar ng-class="{'main-app-nav': true, 'bar-light': true}">
          <div ng-class="{'buttons': true, 'nav-buttons': true, 'out-of-focus': sideMenuIsOpen()}"
               ng-controller="NavCtrl">
-           <button class="button button-icon button-clear ion-android-settings preferences-button ng-class:{'button-positive': sideMenuIsOpen()}"
-                    menu-toggle="left">
-            </button>
-            <a ng-click="openLikedShowsModal()"
-               class="button button-icon button-clear ion-android-list favorites-button ng-class:{'button-positive': likedShowsModalIsOpen}">
-            </a>
+           <button menu-toggle="left"
+                   class="button button-icon button-clear ion-android-settings
+                          preferences-button
+                          ng-class:{'button-positive': sideMenuIsOpen()}">
+           </button>
+           <a ng-click="openLikedShowsModal()"
+              class="button button-icon button-clear ion-android-list
+                     favorites-button
+                     ng-class:{'button-positive': likedShowsModalIsOpen}">
+           </a>
 
-            <div class="user-info-container">
-              <img ng-src="{{regionalFlagUrl()}}" class="regional-flag" ng-click="changeRegion()" />
-              <div class="user-avatar" ng-click="changeRegion()">
-                <img ng-src="{{currentUser.picture}}" />
-              </div>
-            </div>
+           <user-info></user-info>
 
-            <a class="more-link-options button button-icon button-clear ion-android-more-vertical ng-class:{'button-positive': moreOptionsPopoverIsOpen}"
-               ng-click="openPopover($event)">
-            </a>
-          </div>
+           <a ng-click="openPopover($event)"
+              class="more-link-options button button-icon button-clear
+                     ion-android-more-vertical
+                     ng-class:{'button-positive': moreOptionsPopoverIsOpen}">
+           </a>
         </div>
       </ion-header-bar>
 
-      <ion-content padding="true" scroll="false" ng-class="{'cards-container': true, 'out-of-focus': sideMenuIsOpen()}" ng-controller="CardsCtrl">
+      <ion-content padding="true" scroll="false"
+                   ng-class="{'cards-container': true, 'out-of-focus': sideMenuIsOpen()}"
+                   ng-controller="CardsCtrl">
         <td-cards ng-if="shows.length">
             <td-card ng-repeat="show in shows | limitTo: 1"
                      on-partial-swipe="partialSwipeShow($index)"
@@ -40,126 +42,7 @@
     </ion-side-menu-content>
 
     <ion-side-menu side="left">
-      <ion-content padding="false" scroll="true" ng-controller='PreferencesCtrl'>
-        <ion-list>
-          <ion-item class="item-divider">
-            Minimum IMDb Rating: {{prefs.minImdbRating}}
-          </ion-item>
-          <ion-item class="range range-positive web-draggable">
-            <input type="range" min="0.0" max="10.0" step="0.1"
-                   class="web-draggable"
-                   ng-model="prefs.minImdbRating"
-                   ng-change="update()">
-          </ion-item>
-
-          <ion-item class="item-divider">
-            Minimum Release Year: {{prefs.minReleaseYear}}
-          </ion-item>
-          <ion-item class="range range-positive web-draggable">
-            <input type="range" min="1900" max="2015"
-                   class="web-draggable"
-                   ng-model="prefs.minReleaseYear"
-                   ng-change="update()">
-          </ion-item>
-
-          <ion-item class="item-divider">Genres</ion-item>
-          <ion-checkbox ng-model="prefs.genre.action"
-                        on-hold="exclusivelySelectGenre('action')"
-                        ng-change="update()">
-            Action &amp; Adventure
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.anime"
-                        on-hold="exclusivelySelectGenre('anime')"
-                        ng-change="update()">
-            Anime
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.canadian"
-                        on-hold="exclusivelySelectGenre('canadian')"
-                        ng-change="update()">
-            Canadian Movies
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.classic"
-                        on-hold="exclusivelySelectGenre('classic')"
-                        ng-change="update()">
-            Classic Movies
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.comedy"
-                        on-hold="exclusivelySelectGenre('comedy')"
-                        ng-change="update()">
-            Comedies
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.documentary"
-                        on-hold="exclusivelySelectGenre('documentary')"
-                        ng-change="update()">
-            Documentaries
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.dramas"
-                        on-hold="exclusivelySelectGenre('dramas')"
-                        ng-change="update()">
-            Dramas
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.faith"
-                        on-hold="exclusivelySelectGenre('faith')"
-                        ng-change="update()">
-            Faith &amp; Spirituality
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.foreign"
-                        on-hold="exclusivelySelectGenre('foreign')"
-                        ng-change="update()">
-            Foreign Movies
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.gay"
-                        on-hold="exclusivelySelectGenre('gay')"
-                        ng-change="update()">
-            Gay &amp; Lesbian Movies
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.horror"
-                        on-hold="exclusivelySelectGenre('horror')"
-                        ng-change="update()">
-            Horror
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.independent"
-                        on-hold="exclusivelySelectGenre('independent')"
-                        ng-change="update()">
-            Independent Movies
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.music"
-                        on-hold="exclusivelySelectGenre('music')"
-                        ng-change="update()">
-            Music
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.romantic"
-                        on-hold="exclusivelySelectGenre('romantic')"
-                        ng-change="update()">
-            Romantic Comedies
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.scifi"
-                        on-hold="exclusivelySelectGenre('scifi')"
-                        ng-change="update()">
-            Sci-Fi &amp; Fantasy
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.specialInterest"
-                        on-hold="exclusivelySelectGenre('specialInterest')"
-                        ng-change="update()">
-            Special Interest
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.tv"
-                        on-hold="exclusivelySelectGenre('tv')"
-                        ng-change="update()">
-            TV Shows
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.thrillers"
-                        on-hold="exclusivelySelectGenre('thrillers')"
-                        ng-change="update()">
-            Thrillers
-          </ion-checkbox>
-          <ion-checkbox ng-model="prefs.genre.children"
-                        on-hold="exclusivelySelectGenre('children')"
-                        ng-change="update()">
-            Children &amp; Family Movies
-          </ion-checkbox>
-        </ion-list>
-      </ion-content>
+      <preferences-menu></preferences-menu>
     </ion-side-menu>
   </ion-side-menus>
 </ion-view>

@@ -9,7 +9,7 @@ td-cards {
 td-card {
   position: absolute;
   left: 50%;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-left: -1 * $card-width / 2;
   width: $card-width;
   height: $card-height;
@@ -147,12 +147,13 @@ td-card.card-2 {
   margin: 0;
   background: #fff;
   border-top: none;
-  padding: 18px 15px 15px 0px;
+  padding: 10px 15px 15px 0px;
 }
 
 .imdb-branding {
   color: #C6A900;
   display: inline-block;
+  font-weight: bold;
 }
 
 .imdb-rating {

@@ -47,7 +47,8 @@
       if (!auth.isAuthenticated) {
         var currentUser = Store.getCurrentUser(),
             token = currentUser && currentUser.token,
-            profile = currentUser && currentUser.profile;
+            profile = currentUser && currentUser.profile,
+            refreshToken = currentUser && currentUser.refreshToken;
 
         if (token) {
           if (!jwtHelper.isTokenExpired(token)) {

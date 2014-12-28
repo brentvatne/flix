@@ -221,7 +221,7 @@
 
       var o = e.gesture.deltaX / -1000;
 
-      this.rotationAngle = Math.atan(o);
+      this.rotationAngle = -2.5 * Math.atan(o);
 
       this.x = this.startX + (e.gesture.deltaX * 0.8);
       this.y = this.startY + (e.gesture.deltaY * 0.8);
@@ -260,6 +260,7 @@
       compile: function(element, attr) {
         return function($scope, $element, $attr, swipeCards) {
           var el = $element[0];
+          el.style.transform = el.style.webkitTransform = 'translate3d(0px, 0px, 0px)';
 
           // Instantiate our card view
           var swipeableCard = new SwipeableCardView({
