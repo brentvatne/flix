@@ -11,7 +11,7 @@ $menu-shadow-color: #242933;
 
   #preferences-menu-header {
     background: $menu-header-background-color !important;
-    padding: 20px 15px;
+    padding: 22px 15px;
     height: 60px;
     margin-bottom: 18px;
     border-bottom: 3px solid $menu-shadow-color;
@@ -20,7 +20,7 @@ $menu-shadow-color: #242933;
       color: #fff;
       font-family: 'Droid Sans', 'Helvetica Neue';
       font-size: 18px;
-      font-weight: 600;
+      font-weight: bold;
     }
   }
 

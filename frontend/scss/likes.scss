@@ -1,0 +1,49 @@
+.liked-show-item.first {
+  border-top: 1px solid #ccc !important;
+}
+
+.liked-show-item.last {
+  // box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.07);
+}
+
+.liked-show-item {
+  cursor: pointer;
+  padding-top: 15px;
+  background: #fff;
+  overflow: hidden;
+  padding-bottom: 15px;
+  position: relative;
+  padding-left: 60px;
+  height: 90px;
+  border-bottom: 1px solid #ccc !important;
+}
+
+.liked-show-poster img {
+  height: 50px;
+  position: absolute;
+  top: 18px;
+  left: 8px;
+  border-radius: 2px;
+}
+
+.liked-show-title {
+  font-weight: bold;
+  padding-top: 0px;
+  font-size: 16px;
+  margin: 0 0 2px 0;
+}
+
+.liked-show-description {
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.platform-webview .liked-show-description {
+  width: 300px !important;
+}
+
+.liked-show-details {
+  margin: 0;
+}

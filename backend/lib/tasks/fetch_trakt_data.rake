@@ -19,6 +19,5 @@ task(fetch_trakt_data: :environment) do
     else
       puts "Could not find #{show.title}"
     end
-    sleep 2
   end
 end

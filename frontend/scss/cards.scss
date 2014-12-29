@@ -1,16 +1,86 @@
-$card-width: 310px;
-$card-height: 450px;
-$card-bottom-height: $card-height / 1.75;
+$card-width: 100%;
+$card-height: 100%;
+$card-bottom-height: 83%;
+
+.cards-container {
+  background: #EDEDED;
+}
+
+.show-card-container {
+  position: relative;
+  height: $card-height;
+  width: $card-width;
+  overflow: hidden;
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
+
+  .show-card-bottom {
+    transition: transform 0.2s ease-out;
+    transform: translate3d(0, 60%, 0);
+  }
+
+  .show-card-title {
+    transition: all 0.2s ease-out;
+    transform: translate3d(0, -39%, 0);
+  }
+
+  .show-card-actions {
+    transition: transform 0.2s ease-out;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .show-card-title-text, .show-card-imdb-rating {
+    transition: font-size 0.2s ease-out;
+  }
+
+  &.info-is-expanded {
+    .show-card-bottom {
+      transform: translate3d(0, 9%, 0);
+    }
+
+    .show-card-title {
+      transform: translate3d(0, -89.5%, 0);
+      background: rgba(0,0,0,0.8);
+
+      .show-card-title-text {
+        font-size: 18px !important;
+        max-height: 25px;
+      }
+
+      .show-card-imdb-rating {
+        font-size: 16px;
+      }
+    }
+
+    .show-card-actions {
+      box-shadow: none;
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+}
 
 td-cards {
   display: block;
+  position: relative;
+  width: 95%;
+  height: 94% !important;
+  min-width: 300px;
+  min-height: 420px;
+  max-height: 700px;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.td-cards {
+  height: 100%;
+}
+
+.swipe-card {
+  height: 100% !important;
 }
 
 td-card {
   position: absolute;
-  left: 50%;
-  margin-top: 15px;
-  margin-left: -1 * $card-width / 2;
+  top: 14px;
   width: $card-width;
   height: $card-height;
   border-radius: 2px;
@@ -28,75 +98,17 @@ td-card {
   font-family: 'Droid Sans', 'Helvetica Neue';
   width: 100%;
   background: #fff;
-  height: $card-bottom-height;
+  height: 100%;
+  // height: $card-bottom-height;
 }
 
-td-card img {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-td-card.card-0 {
-  -webkit-transform: translate3d(0, 0px, 0);
-  transform: translate3d(0, 0px, 0);
-  top: 0px;
-  z-index: 10;
-}
-
-td-card.card-1 {
-  -webkit-transform: translate3d(0, 4px, 0);
-  transform: translate3d(0, 4px, 0);
-  z-index: 9;
-}
-
-td-card.card-2 {
-  -webkit-transform: translate3d(0, 8px, 0);
-  transform: translate3d(0, 8px, 0);
-  z-index: 8;
-}
-
-.yes-text {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 30px;
-  color: rgb(111, 250, 111);
-  opacity: 0;
-}
-.no-text {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 30px;
-  color: rgb(255, 115, 115);
-  opacity: 0;
-}
-
-.fade {
-  -webkit-transition: 0.2s opacity linear;
-  transition: 0.2s opacity linear;
-  opacity: 0;
-}
-
-/* Cards */
-.cards-container {
-  background: #EDEDED;
-}
-
-.show-card-container {
-  position: relative;
-  width: $card-width;
-  height: $card-height;
-  overflow: hidden;
-  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
-}
 
 .show-card-poster-glass {
   background-size: cover;
   position: absolute;
   top: -80px;
   left: -3px;
-  width: $card-width + 5px;
+  width: $card-width + 5%;
   height: 100%;
   opacity: 0.8;
   -webkit-filter: brightness(0.5) contrast(1.4);
@@ -115,13 +127,43 @@ td-card.card-2 {
 .show-card-title {
   color: #fff;
   width: 100%;
-  margin: 0 0 0 0;
-  padding: 15px 15px;
-  position: absolute;
-  bottom: $card-bottom-height - 10px;
+  height: 100%;
+  position: relative;
+  margin: 0;
   font-weight: 300;
   font-family: 'Droid Sans', 'Helvetica Neue';
   font-size: 22px;
+
+  .show-card-title-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 80%;
+    max-width: 440px;
+  }
+
+  .show-card-imdb-rating {
+    padding: 4px 9px 0px 0px;
+    border: none;
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+    color: #E9C809;
+    font-size: 18px;
+
+    .imdb-rating {
+      display: inline-block;
+      padding-left: 0px;
+    }
+  }
+
+
+  .show-card-title-text {
+    position: absolute;
+    bottom: 15px;
+    left: 13px;
+  }
 }
 
 .show-card-description {
@@ -132,34 +174,42 @@ td-card.card-2 {
   box-shadow: 0px -10px 10px 0px rgba(0,0,0,0.4);
 
   .platform-browser & {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 
 .show-card-genre {
-  margin: 3px 0 9px 0;
-  font-size: 14px;
-  color: #999999;
-  font-weight: normal;
+  // margin: 3px 0 3px 0;
+  // font-size: 14px;
+  // color: #999999;
+  // font-weight: normal;
+
+  // .platform-browser & {
+  //   font-size: 15px;
+  // }
 }
 
-.show-card-row.show-card-imdb-rating {
+.show-card-row.show-card-plain-row {
+  &.section-divider {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+  }
+
   margin: 0;
   background: #fff;
   border-top: none;
-  padding: 10px 15px 15px 0px;
-}
+  padding: 10px 15px 0px 0px;
+  color: #4E4B4B;
 
-.imdb-branding {
-  color: #C6A900;
-  display: inline-block;
-  font-weight: bold;
-}
+  p {
+    padding-top: 2px;
+    color: #222;
+  }
 
-.imdb-rating {
-  color: #827c7c;
-  display: inline-block;
-  padding-left: 5px;
+  .show-card-label {
+    color: #999999;
+  }
 }
 
 .not-interested-button {
@@ -181,6 +231,10 @@ td-card.card-2 {
   width: 100%;
   border-top: 1px solid #eee;
   background: rgba(0, 0, 0, 0.03);
+
+  & > div {
+    padding-bottom: 2px;
+  }
 }
 
 .show-card-buttons {
@@ -191,59 +245,14 @@ td-card.card-2 {
 }
 
 .show-card-actions {
+  box-shadow: -5px 0px 15px 20px rgba(255, 255, 255, 0.8);
+  background: #fff;
   position: absolute;
+  border-top: 1px solid #eee;
   bottom: 0;
   width: 100%;
 }
 
-/* Liked show table */
-
-.liked-show-item.first {
-  border-top: 1px solid #ccc !important;
-}
-
-.liked-show-item.last {
-  // box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.07);
-}
-
-.liked-show-item {
-  cursor: pointer;
-  padding-top: 15px;
-  background: #fff;
-  overflow: hidden;
-  padding-bottom: 15px;
-  position: relative;
-  padding-left: 60px;
-  height: 90px;
-  border-bottom: 1px solid #ccc !important;
-}
-
-.liked-show-poster img {
-  height: 50px;
-  position: absolute;
-  top: 18px;
-  left: 8px;
-  border-radius: 2px;
-}
-
-.liked-show-title {
-  font-weight: bold;
-  padding-top: 0px;
-  font-size: 16px;
-  margin: 0 0 2px 0;
-}
-
-.liked-show-description {
-  font-size: 14px;
-  line-height: 17px;
-  margin: 0;
-  overflow: hidden;
-}
-
-.platform-webview .liked-show-description {
-  width: 300px !important;
-}
-
-.liked-show-details {
-  margin: 0;
+.pt0 {
+  padding-top: 0px !important;
 }
