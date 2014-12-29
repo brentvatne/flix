@@ -34,3 +34,6 @@ you out.
 If you like this, you might also like
 [Snaps](https://github.com/brentvatne/snaps) - another quick Ionic
 project I built for creating a live photo feed through Firebase.
+
+## License
+Copyright (c) 2014-2015 Brent Vatne. See the LICENSE file for license rights and limitations (MIT).
