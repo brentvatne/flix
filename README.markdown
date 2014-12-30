@@ -53,6 +53,7 @@ need a hand.
   cache images for saved movies?)
 - [ ] Better list of liked movies with options to remove
 - [ ] Unit and integration tests
+- [ ] Detect region on first load rather than just defaulting to Canada
 
 ## Related projects
 
