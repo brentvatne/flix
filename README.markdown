@@ -40,6 +40,7 @@ The project is quite easy to set up thanks to Ionic's CLI.
 - Clone the repo and run `npm install` in the frontend directory
 - Run `ionic platform add android` if you wish to test this on an
   Android device (this is the target platform)
+- Add the inappbrowser plugin: `cordova plugin add org.apache.cordova.inappbrowser`
 - To run a local webserver: `ionic serve` or to run it on your device
   `ionic run android`
 
