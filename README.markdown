@@ -80,7 +80,7 @@ I work for [Madriska Inc.](http://madriska.com/). We do Rails, Clojure,
 JavaScript, hybrid mobile apps and more. We work with clients big and
 small in many different industries, and we prefer building long-lasting
 relationships where we can get to know each other and the business.
-[Shoot me and email](mailto:brent.vatne@madriska.com) if you have an
+[Shoot me an email](mailto:brent.vatne@madriska.com) if you have an
 interesting project or business problem that you'd like some expert help
 on.
 
