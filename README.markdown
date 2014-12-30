@@ -5,7 +5,7 @@
 ## Demos
 
 Check out the [demo video](http://url.brentvatne.ca/LMhq). It's a 20mb
-mp4 file and slightly out of date from the current interface, so you may not want to check it out if you're on mobile.
+mp4 file and is slightly out of date from the current interface, so you may not want to check it out if you're on mobile.
 
 Or you can try it out at [http://flix.brentvatne.ca](http://flix.brentvatne.ca/) - it's not the
 prettiest on a large screen, resize it to be smaller and you'll be
@@ -13,13 +13,13 @@ happier. If you're using an iPhone, login and then save the app to your
 home screen to get rid of the address bar.
 
 The initial load will be pretty slow as there's a bunch of
-JavaScript to be dwonlaoded, and it's just served through a minimal Ruby
+JavaScript to be downloaded, and it's just served through a minimal Ruby
 web server on Heroku. Also be warned, Auth0 doesn't seem to work great if you
 choose to log in through Facebook and then handle that login with the
 Facebook app (any ideas on how to fix this?). So if you log in through
 Facebook, choose Chrome to handle the login - or just sign up for an
 account by email and you won't have any issues.  It's a bit slower when
-you open the web version on your phone vs run it native through a web
+you open the web version on your phone vs running it native through a web
 view, and it's been pointed out to me that it does not work so well on
 Firefox.
 
@@ -27,7 +27,7 @@ Or you can just [download it from the Google Play store](http://url.brentvatne.c
 
 ## Intended Target Platform
 
-The intended target device is my testing device: **Nexus 5 on Android L**,
+The intended target device is my testing device: **Nexus 5 on Android Lollipop**,
 but it works fine on most new phones I believe.
 
 ## Contribute
@@ -36,10 +36,10 @@ The project is quite easy to set up thanks to Ionic's CLI.
 
 - Make sure you have [Node](http://nodejs.org/) and [Ionic
   Framework](http://ionicframework.com/docs/guide/installation.html)
-  installed.
-- Clone the repo go to the frontend directory, run `npm install`
+  installed
+- Clone the repo and run `npm install` in the frontend directory
 - Run `ionic platform add android` if you wish to test this on an
-  Android device (this is the target platform).
+  Android device (this is the target platform)
 - To run a local webserver: `ionic serve` or to run it on your device
   `ionic run android`
 
