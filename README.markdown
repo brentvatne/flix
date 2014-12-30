@@ -23,6 +23,8 @@ you open the web version on your phone vs run it native through a web
 view, and it's been pointed out to me that it does not work so well on
 Firefox.
 
+Or you can just [download it from the Google Play store](http://url.brentvatne.ca/1kOgO).
+
 ## Intended Target Platform
 
 The intended target device is my testing device: **Nexus 5 on Android L**,
