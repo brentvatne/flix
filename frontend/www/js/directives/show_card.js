@@ -14,12 +14,12 @@
         }
 
         $ionicGesture.on('tap', scope.toggleExpandInfo, $description);
-        scope.$on('$destroy', function() {
-          // Fix me - currently element is being removed before scope $destroy
-          if ($description) {
-            $ionicGesture.off('tap', scope.toggleExpandInfo, $description);
-          }
-        });
+        // scope.$on('$destroy', function() {
+        //   // Fix me - currently element is being removed before scope $destroy
+        //   if ($description) {
+        //     $ionicGesture.off('tap', scope.toggleExpandInfo, $description);
+        //   }
+        // });
       }
     }
   }
