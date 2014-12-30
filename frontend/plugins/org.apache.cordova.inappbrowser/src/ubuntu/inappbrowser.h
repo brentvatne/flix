@@ -52,7 +52,7 @@ public slots:
     void injectScriptFile(int cb, int, const QString&, bool);
     void injectScriptCode(int cb, int, const QString&, bool);
 
-    void loadFinished(bool status);
+    void loadFinished(int status);
 
 private:
     int _eventCb;

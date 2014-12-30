@@ -1,0 +1,3 @@
+cordova build --release android
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ~/Desktop/flix.keystore platforms/android/ant-build/CordovaApp-release-unsigned.apk alias_name
+zipalign -v 4 platforms/android/ant-build/CordovaApp-release-unsigned.apk flix.apk
