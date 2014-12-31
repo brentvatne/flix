@@ -30,6 +30,13 @@ Or you can just [download it from the Google Play store](http://url.brentvatne.c
 The intended target device is my testing device: **Nexus 5 on Android Lollipop**,
 but it works fine on most new phones I believe.
 
+## Are you an iOS developer?
+
+I don't have an iOS developer account so I can't push this to the Apple
+Store, I would be great if someone could take charge of doing this and
+ensuring it meets the Apple guidelines. Any volunteers?
+brentvatne@gmail.com
+
 ## Contribute
 
 The project is quite easy to set up thanks to Ionic's CLI.
