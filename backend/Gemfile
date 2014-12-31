@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.3'
+ruby '2.1.5'
 
 gem 'rails', '4.2.0'
 gem 'pg'
@@ -21,4 +21,5 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'pry-rails'
   gem 'colorscore'
+  gem 'rspec-rails', '~> 3.0'
 end
