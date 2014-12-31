@@ -21,20 +21,27 @@
   app.config(function (authProvider, $httpProvider, jwtInterceptorProvider) {
     jwtInterceptorProvider.tokenGetter = function(Store, Actions, jwtHelper, auth) {
       var currentUser = Store.getCurrentUser(),
-          token = currentUser && currentUser.token,
+          idToken = currentUser && currentUser.token,
           refreshToken = currentUser && currentUser.refreshToken;
 
-      if ((!currentUser || currentUser == {}) || !token || !refreshToken) {
+      // If no token return null
+      if (!idToken || !refreshToken) {
+        console.log('no token');
         return null;
+      }
+
+      // If token is expired, get a new one
+      if (jwtHelper.isTokenExpired(idToken)) {
+        console.log('expired token');
+        return auth.refreshIdToken(refreshToken).then(function(idToken) {
+          console.log('refresh it');
+          currentUser.token = idToken;
+          Store.updateAuthToken(idToken);
+          return idToken;
+        });
       } else {
-        if (jwtHelper.isTokenExpired(token)) {
-          return auth.refreshIdToken(refreshToken).then(function(token) {
-            Actions.updateAuthToken(token);
-            return token;
-          });
-        } else {
-          return token;
-        }
+        console.log('not expired token');
+        return idToken;
       }
     }
 
@@ -42,13 +49,22 @@
   });
 
   app.run(function($rootScope, auth, Store, jwtHelper, $location, Actions) {
-    // This events gets triggered on refresh or URL change
+    // This event gets triggered on refresh or URL change
     $rootScope.$on('$locationChangeStart', function() {
+      console.log(auth);
+      console.log(auth.isAuthenticated);
       if (!auth.isAuthenticated) {
         var currentUser = Store.getCurrentUser(),
             token = currentUser && currentUser.token,
             profile = currentUser && currentUser.profile,
             refreshToken = currentUser && currentUser.refreshToken;
+
+        console.log(currentUser);
+        console.log(auth.isAuthenticated);
+        console.log(token);
+        console.log(profile);
+        console.log(refreshToken);
+        console.log(jwtHelper.isTokenExpired(token));
 
         if (token) {
           if (!jwtHelper.isTokenExpired(token)) {
