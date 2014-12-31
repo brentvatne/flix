@@ -17,23 +17,23 @@ class ApplicationController < ActionController::Base
   private
 
   def decoded_token
-    @decoded_token ||= begin
-      authorization = request.headers['Authorization']
-      raise InvalidTokenError if authorization.nil?
+    @decoded_token ||= decode_token
+  end
 
-      token = request.headers['Authorization'].split(' ').last
-      @decoded_token = JWT.decode(token,
-        JWT.base64url_decode(Rails.application.secrets.auth0_client_secret))
-    rescue JWT::DecodeError
-      render text: "Unauthorized", status: :unauthorized
-    end
+  def decode_token
+    authorization = request.headers['Authorization']
+    raise InvalidTokenError if authorization.nil?
+
+    token = authorization.split(' ').last
+    JWT.decode(token, JWT.base64url_decode(
+		        Rails.application.secrets.auth0_client_secret))
   end
 
   def validate_token
     begin
       raise InvalidTokenError if Rails.application.secrets.auth0_client_id != decoded_token[0]["aud"]
     rescue JWT::DecodeError, InvalidTokenError
-      render text: "Unauthorized", status: :unauthorized
+      render(text: "Unauthorized", status: :unauthorized) and return
     end
   end
 
