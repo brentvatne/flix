@@ -28,9 +28,7 @@
       updateAuthToken: function(newToken) {
         payload = {
           actionType: AppConstants.UPDATE_AUTH_TOKEN,
-          data: {
-            token: newToken
-          }
+          token: newToken
         }
 
         Dispatcher.handleServerAction(payload);
@@ -53,10 +51,12 @@
         Dispatcher.handleViewAction(payload);
       },
 
-      fetchShows: function() {
+      fetchShows: function(options) {
         var userEmail = (Store.getCurrentUser() || {}).email,
-            prefs = Store.getPrefs();
+            prefs = angular.copy(Store.getPrefs());
 
+        if (typeof options == 'undefined') { options = {} }
+        prefs = angular.extend(prefs, options);
         FlixApi.fetchShows(prefs, userEmail);
       },
 

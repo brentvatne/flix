@@ -68,6 +68,10 @@
         return _repo.prefs;
       },
 
+      updateAuthToken: function(token) {
+        return _updateAuthToken(token);
+      },
+
       getRegion: function() {
         if (typeof(_repo.region) == 'undefined' || _repo.region == null) {
           _setRegion('canada');
@@ -78,7 +82,11 @@
       dispatcherIndex: Dispatcher.register(function(payload) {
         var action = payload.action;
 
-        if (action.response != ApiConstants.PENDING) {
+        if (action.response == ApiConstants.PENDING) {
+          if (action.actionType == AppConstants.FETCH_SHOWS) {
+            store.emitChange(action);
+          }
+        } else {
           switch(action.actionType) {
             case AppConstants.SET_CURRENT_USER:
               _logIn(action.data);

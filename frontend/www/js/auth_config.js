@@ -26,21 +26,16 @@
 
       // If no token return null
       if (!idToken || !refreshToken) {
-        console.log('no token');
         return null;
       }
 
       // If token is expired, get a new one
       if (jwtHelper.isTokenExpired(idToken)) {
-        console.log('expired token');
         return auth.refreshIdToken(refreshToken).then(function(idToken) {
-          console.log('refresh it');
-          currentUser.token = idToken;
           Store.updateAuthToken(idToken);
           return idToken;
         });
       } else {
-        console.log('not expired token');
         return idToken;
       }
     }
@@ -51,20 +46,11 @@
   app.run(function($rootScope, auth, Store, jwtHelper, $location, Actions) {
     // This event gets triggered on refresh or URL change
     $rootScope.$on('$locationChangeStart', function() {
-      console.log(auth);
-      console.log(auth.isAuthenticated);
       if (!auth.isAuthenticated) {
         var currentUser = Store.getCurrentUser(),
             token = currentUser && currentUser.token,
             profile = currentUser && currentUser.profile,
             refreshToken = currentUser && currentUser.refreshToken;
-
-        console.log(currentUser);
-        console.log(auth.isAuthenticated);
-        console.log(token);
-        console.log(profile);
-        console.log(refreshToken);
-        console.log(jwtHelper.isTokenExpired(token));
 
         if (token) {
           if (!jwtHelper.isTokenExpired(token)) {
@@ -72,9 +58,9 @@
             $rootScope.currentUser = currentUser;
           } else {
             auth.refreshIdToken(refreshToken).then(function(newToken) {
-              Actions.updateAuthToken(newToken);
+              Store.updateAuthToken(newToken);
               auth.authenticate(profile, newToken);
-              $rootScope.currentUser = currentUser;
+              $rootScope.currentUser = Store.getCurrentUser();
               return newToken;
             });
           }

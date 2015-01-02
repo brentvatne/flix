@@ -32,6 +32,7 @@ gulp.task('sass', function(done) {
 
 gulp.task('vendor', function(done) {
   var paths = [
+    './www/lib/underscore/underscore.js',
     './www/lib/ionic/js/ionic.bundle.js',
     "./www/lib/collide/collide.js",
     "./www/lib/ngstorage/ngStorage.min.js",
