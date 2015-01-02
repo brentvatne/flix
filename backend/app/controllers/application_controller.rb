@@ -25,8 +25,9 @@ class ApplicationController < ActionController::Base
     raise InvalidTokenError if authorization.nil?
 
     token = authorization.split(' ').last
-    JWT.decode(token, JWT.base64url_decode(
-		        Rails.application.secrets.auth0_client_secret))
+    JWT.decode(token,
+      JWT.base64url_decode(Rails.application.secrets.auth0_client_secret)
+     )
   end
 
   def validate_token

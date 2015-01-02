@@ -3,7 +3,11 @@ class Show < ActiveRecord::Base
   scope :usa, -> { where(region: 'usa') }
 
   def poster_url
-    trakt_images['poster'] || image_url
+    if trakt_poster_url.present?
+      trakt_poster_url
+    else
+      image_url
+    end
   end
 
   def trakt_images
@@ -119,6 +123,10 @@ class Show < ActiveRecord::Base
 
     if region = params[:region]
       query = query.where('region = ?', region)
+    end
+
+    if offset = params[:offset]
+      query = query.offset(offset.to_i)
     end
 
     query
